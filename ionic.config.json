@@ -1,0 +1,7 @@
+{
+  "name": "beemadukaan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
