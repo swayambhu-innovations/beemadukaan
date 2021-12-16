@@ -140,8 +140,8 @@
             "prerender": false,
             "ssr": false,
             "browserTarget": "BeemaDukaan:build:production",
-            "firebaseProject": "test-pro-53406",
-            "firebaseHostingSite": "test-pro-53406"
+            "firebaseProject": "beema-dukaan",
+            "firebaseHostingSite": "beema-dukaan"
           }
         }
       }

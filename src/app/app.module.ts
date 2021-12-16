@@ -18,6 +18,9 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { DatabaseService } from './services/database.service';
+import { AuthencationService } from './services/authencation.service';
+import { UserDataService } from './services/user-data.service';
 
 
 
@@ -44,7 +47,10 @@ import { MatInputModule } from '@angular/material/input';
     MatInputModule
   ],
   providers: [
-    DynamicScriptLoaderService
+    DynamicScriptLoaderService,
+    DatabaseService,
+    AuthencationService,
+    UserDataService,
   ],
   bootstrap: [AppComponent]
 })

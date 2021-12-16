@@ -6,9 +6,16 @@
           "test-pro-53406"
         ]
       }
+    },
+    "beema-dukaan": {
+      "hosting": {
+        "BeemaDukaan": [
+          "beema-dukaan"
+        ]
+      }
     }
   },
   "projects": {
-    "default": "test-pro-53406"
+    "default": "beema-dukaan"
   }
 }

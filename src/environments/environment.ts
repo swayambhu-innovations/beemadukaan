@@ -4,13 +4,13 @@
 
 export const environment = {
   firebase: {
-    projectId: 'test-pro-53406',
-    appId: '1:341220921047:web:082fc04d16a88537152a92',
-    storageBucket: 'test-pro-53406.appspot.com',
-    apiKey: 'AIzaSyBCmcpURFyULI_zFbIP6SA-xnpehJOYImc',
-    authDomain: 'test-pro-53406.firebaseapp.com',
-    messagingSenderId: '341220921047',
-    measurementId: 'G-WKCJNYWL6G',
+    projectId: 'beema-dukaan',
+    appId: '1:107471374234:web:04d33f26d679dbffda9c23',
+    storageBucket: 'beema-dukaan.appspot.com',
+    apiKey: 'AIzaSyAd6BSsdMow7xMU11UEJ2k-oGd-nZ8WoBU',
+    authDomain: 'beema-dukaan.firebaseapp.com',
+    messagingSenderId: '107471374234',
+    measurementId: 'G-8J97RDXTR1',
   },
   production: false
 };
