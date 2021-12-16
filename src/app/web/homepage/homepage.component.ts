@@ -12,7 +12,10 @@ export class HomepageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    $.getScript('assets/js/script.js');
+    setTimeout(() => {
+      $("#addons-options-modal").modal('show');
+    }, 5000);
   }
 
 

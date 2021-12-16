@@ -1,4 +1,4 @@
-/*** 
+/***
 
 ====================================================================
 	Main Footer
@@ -200,8 +200,8 @@
   -moz-transition: all 300ms ease;
   transition: all 300ms ease;
   font-size: var(--font-14);
-  color: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255);
+  border: 1px solid rgb(255 255 255)
 }
 
 .quote-form .form-group textarea::-webkit-input-placeholder,
@@ -267,8 +267,8 @@
   width: 100%;
   border-radius: 4px;
   background: none;
-  color: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255);
 }
 
 .form-group .ui-button .ui-icon {

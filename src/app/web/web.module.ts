@@ -6,7 +6,15 @@ import { RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage/homepage.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { VisionMissionComponent } from './vision-mission/vision-mission.component';
-
+import { ServicesComponent } from './services/services.component';
+import { CarInsuranceComponent } from './services/car-insurance/car-insurance.component';
+import { TwowheelerInsuranceComponent } from './services/twowheeler-insurance/twowheeler-insurance.component';
+import { HealthInsuranceComponent } from './services/health-insurance/health-insurance.component';
+import { InsuranceRenewalComponent } from './insurance-renewal/insurance-renewal.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { BlogsComponent } from './blogs/blogs.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 
 
 @NgModule({
@@ -15,14 +23,37 @@ import { VisionMissionComponent } from './vision-mission/vision-mission.componen
     FooterComponent,
     HomepageComponent,
     AboutUsComponent,
-    VisionMissionComponent
+    VisionMissionComponent,
+    ServicesComponent,
+    CarInsuranceComponent,
+    TwowheelerInsuranceComponent,
+    HealthInsuranceComponent,
+    InsuranceRenewalComponent,
+    ContactUsComponent,
+    BlogsComponent,
+    FeedbackComponent,
+    SingleBlogComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forRoot([
       { path: '', component: HomepageComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'vision-mission', component: VisionMissionComponent }
+      { path: 'vision-mission', component: VisionMissionComponent },
+      {
+        path:'services',
+        children: [
+          { path:'',  component : ServicesComponent},
+          { path:'car-insurance' , component : CarInsuranceComponent},
+          { path:'two-wheeler-insurance', component : TwowheelerInsuranceComponent },
+          { path:'health-insurance', component : HealthInsuranceComponent},
+        ],
+      },
+      { path: 'renew-insurance', component: InsuranceRenewalComponent },
+      { path: 'contact-us', component: ContactUsComponent },
+      { path: 'blogs', component: BlogsComponent },
+      { path: 'blogs/:id', component: SingleBlogComponent },
+      { path: 'feedbacks', component: FeedbackComponent }
     ])
   ],
 })

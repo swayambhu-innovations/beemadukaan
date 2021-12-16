@@ -9,7 +9,7 @@
             <!-- Title Column -->
             <div class="title-column col-lg-5 col-md-12 col-sm-12">
               <div class="inner-column">
-                <h3>Let us take care about your veicle</h3>
+                <h3>Let us take care of you.</h3>
               </div>
             </div>
 
@@ -17,7 +17,7 @@
             <div class="form-column col-lg-7 col-md-12 col-sm-12">
               <div class="inner-column">
                 <div class="newsletter-form">
-                  <form method="post" action="https://themeim.com/demo/carsore/contact.html">
+                  <form method="post" >
                     <div class="form-group">
                       <span class="icon fa fa-envelope"></span>
                       <input
@@ -47,10 +47,6 @@
       class="main-footer"
       style="background-image: url(assets/images/background/pattern-2.png)"
     >
-      <!-- <div
-        class="top-pattern-layer"
-        style="background-image: url(assets/images/background/pattern-1.png)"
-      ></div> -->
       <div class="auto-container">
         <!-- Upper Box -->
         <div class="upper-box">
@@ -93,13 +89,13 @@
               <div class="footer-widget logo-widget">
                 <div class="logo">
                   <a href="index.html"
-                    ><img src="assets/images/footer-logo.png" alt=""
+                    ><img src="assets/images/logo-main.jpg" width="150px" alt=""
                   /></a>
                 </div>
                 <div class="text">
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the industry's
-                  standard dummy text.
+                  Beema Dukaan General Insurance commenced operations in 2013 with the aim of providing comprehensive retail,
+commercial and industrial insurance solutions. The company has an employee strength of 1200+ over a network
+of 110 offices in 95 cities across 29 states.
                 </div>
                 <!-- Social Box -->
                 <ul class="social-box">
@@ -136,12 +132,10 @@
                   <div class="column col-lg-6 col-md-6 col-sm-12">
                     <h3>Company</h3>
                     <ul class="list-links">
-                      <li><a href="#">About us</a></li>
-                      <li><a href="#">our team</a></li>
-                      <li><a href="#">Services</a></li>
-                      <li><a href="#">insurance</a></li>
-                      <li><a href="#">blog</a></li>
-                      <li><a href="#">contact us</a></li>
+                      <li><a routerLink="/about-us">About us</a></li>
+                      <li><a routerLink="/services">Services</a></li>
+                      <li><a routerLink="/contact-us">contact us</a></li>
+                      <li><a routerLink="/feedbacks">Feedbacks</a></li>
                     </ul>
                   </div>
                   <!-- Column -->
@@ -163,11 +157,11 @@
             <!-- Footer Column -->
             <div class="footer-column col-lg-3 col-md-6 col-sm-12">
               <div class="footer-widget quote-widget">
-                <h3>Request a Quote</h3>
+                <h4 class="mb-2 text-white">Want to know more about our Policies?</h4>
 
                 <!-- Quote Form -->
                 <div class="quote-form">
-                  <form method="post" action="https://themeim.com/demo/carsore/appointment.html">
+                  <form method="post" >
                     <div class="clearfix">
                       <div class="form-group">
                         <input
@@ -189,12 +183,28 @@
 
                       <!--Form Group-->
                       <div class="form-group">
+                        <input
+                          type="text"
+                          name="number"
+                          placeholder="Your Contact Number"
+                          required=""
+                        />
+                      </div>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          name="age"
+                          placeholder="Your Age"
+                          required=""
+                        />
+                      </div>
+                      <!--Form Group-->
+                      <div class="form-group">
                         <select class="custom-select-box">
-                          <option>Your Subject</option>
-                          <option>Subject 01</option>
-                          <option>Subject 02</option>
-                          <option>Subject 03</option>
-                          <option>Subject 04</option>
+                          <option>Your Gender</option>
+                          <option>Male</option>
+                          <option>Female</option>
+                          <option>Other</option>
                         </select>
                       </div>
 
@@ -220,13 +230,13 @@
             <div class="pull-left">
               <div class="copyright">
                 Copyright &copy; 2021. All rights reserved by <br />
-                <span>Carsore Company.</span>
+                <span>Beema Dukaan.</span>
               </div>
             </div>
             <div class="pull-right">
               <ul class="footer-nav">
-                <li><a href="privacy.html">Privacy Policy</a></li>
-                <li><a href="terms.html">Terms & Condition</a></li>
+                <li><a >Privacy Policy</a></li>
+                <li><a >Terms & Condition</a></li>
               </ul>
             </div>
           </div>
@@ -234,203 +244,3 @@
       </div>
     </footer>
     <!-- End Main Footer -->
-
-    <!-- Calculator Palate  -->
-    <div class="calculator-palate">
-      <div class="calculator-trigger">
-        <i class="flaticon-keys"></i>
-      </div>
-      <span class="palate-tag">Calculator</span>
-      <div class="palate-content">
-        <!-- Styled Form -->
-        <div class="styled-form style-two">
-          <form method="post" action="https://themeim.com/demo/carsore/index.html">
-            <!-- Form Group -->
-            <div class="form-group">
-              <label>What is your vehicle number*</label>
-              <span class="icon flaticon-user-2"></span>
-              <input
-                type="text"
-                name="username"
-                value=""
-                placeholder="Your policy number"
-                required
-              />
-            </div>
-
-            <!-- Form Group -->
-            <div class="form-group">
-              <label>What is your city*</label>
-              <span class="icon flaticon-edit"></span>
-              <select class="custom-select-box">
-                <option>Your City</option>
-                <option>City 01</option>
-                <option>City 02</option>
-                <option>City 03</option>
-                <option>City 04</option>
-              </select>
-            </div>
-
-            <!-- Form Group -->
-            <div class="form-group">
-              <label>What is your car model?*</label>
-              <span class="icon flaticon-edit"></span>
-              <select class="custom-select-box">
-                <option>Your VPN Number</option>
-                <option>VPN 01</option>
-                <option>VPN 02</option>
-                <option>VPN 03</option>
-                <option>VPN 04</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>What is you car fuel type*</label>
-              <span class="icon flaticon-edit"></span>
-              <select class="custom-select-box">
-                <option>Your Car fuel type</option>
-                <option>fuel 01</option>
-                <option>fuel 02</option>
-                <option>fuel 03</option>
-                <option>fuel 04</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label>What is you car Purchase date & year*</label>
-              <span class="icon flaticon-edit"></span>
-              <span class="calendar-icon flaticon-calendar"></span>
-              <input
-                class="datepicker"
-                autocomplete="off"
-                type="text"
-                name="username"
-                value=""
-                placeholder="DD/MM/YYYY"
-                required
-              />
-            </div>
-
-            <div class="row clearfix">
-              <!-- Column -->
-              <div class="column col-lg-6 col-md-6 col-sm-12">
-                <h6>Vehicle for:</h6>
-                <div class="form-group margin">
-                  <div class="radio-box">
-                    <input
-                      type="radio"
-                      name="remember-password"
-                      id="type-1"
-                    />
-                    <label for="type-1">Commercial use</label>
-                  </div>
-                </div>
-                <div class="form-group margin">
-                  <div class="radio-box">
-                    <input
-                      type="radio"
-                      name="remember-password"
-                      id="type-2"
-                    />
-                    <label for="type-2">Personal Use</label>
-                  </div>
-                </div>
-              </div>
-              <!-- Column -->
-              <div class="column col-lg-6 col-md-6 col-sm-12">
-                <h6>Policy status:</h6>
-                <div class="form-group margin">
-                  <div class="radio-box">
-                    <input
-                      type="radio"
-                      name="remember-password"
-                      id="type-3"
-                    />
-                    <label for="type-3">Policy Expired</label>
-                  </div>
-                </div>
-                <div class="form-group margin">
-                  <div class="radio-box">
-                    <input
-                      type="radio"
-                      name="remember-password"
-                      id="type-4"
-                    />
-                    <label for="type-4">Policy not expired</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <button type="button" class="theme-btn btn-style-four">
-                <span class="txt">Calculator </span
-                ><i class="fa fa-angle-right"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- End Calculator Palate  -->
-
-    <!-- Contact Palate  -->
-    <div class="cantact-palate">
-      <div class="calculator-trigger">
-        <i class="flaticon-envelope"></i>
-      </div>
-      <span class="palate-tag">Contact Form</span>
-      <div class="palate-content">
-        <!-- Contact Form -->
-        <div class="contact-form">
-          <form method="post" action="https://themeim.com/demo/carsore/contact.html">
-            <div class="form-group">
-              <label>Enter Your Name*</label>
-              <input
-                type="text"
-                name="username"
-                placeholder="Your Name"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label>Enter Your Email*</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label>Subject (Optional)</label>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Your Subject"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label>Your Message</label>
-              <textarea
-                name="message"
-                placeholder="Type Your Message"
-              ></textarea>
-            </div>
-
-            <div class="form-group">
-              <button type="button" class="theme-btn btn-style-four">
-                <span class="txt">Send Now </span
-                ><i class="fa fa-angle-right"></i>
-              </button>
-            </div>
-          </form>
-        </div>
-        <!-- eND Contact Form -->
-      </div>
-    </div>
-    <!-- End Contact Palate  -->

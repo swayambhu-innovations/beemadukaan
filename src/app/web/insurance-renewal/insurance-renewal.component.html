@@ -1,0 +1,100 @@
+<app-header></app-header>
+<!-- Page Title -->
+<section class="page-title">
+  <div class="background-container">
+    <img
+      class="left-image"
+      src="assets/images/background/header-left-bg.png"
+      alt=""
+    />
+    <img
+      class="right-image"
+      src="assets/images/background/about-us-right-bg.png"
+      alt=""
+    />
+  </div>
+  <div class="service-container">
+    <div class="section-icons-outer parallax-scene-1">
+      <div
+        data-depth="0.20"
+        class="pattern-layer"
+        style="background-image: url(images/background/pattern-8.png)"
+      ></div>
+    </div>
+
+    <div class="auto-container">
+      <h1>Renew Online</h1>
+      <ul class="page-breadcrumb">
+        <li><a routerLink="/">home</a></li>
+        <li>Renew Online</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<!-- End Page Title -->
+
+<!-- About Section -->
+<section class="about-section style-two">
+  <div class="auto-container">
+    <div class="inner-container">
+      <div class="form-column col-lg-12 col-md-12 col-sm-12">
+        <div class="inner-column">
+          <h4 class="mb-3">Policy Owner Info</h4>
+          <!-- Login Form -->
+          <div class="styled-form">
+            <form method="post">
+              <fieldset>
+                <div class="form-group">
+                  <label>Enter your Customer ID *</label>
+                  <span class="icon flaticon-user-2"></span>
+                  <input
+                    type="text"
+                    name="username"
+                    value=""
+                    placeholder="Your Customer ID"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label>Enter your Policy Number *</label>
+                  <span class="icon flaticon-edit"></span>
+                  <input
+                    type="text"
+                    name="Policy"
+                    value=""
+                    placeholder="Policy Number"
+                    required
+                  />
+                </div>
+              </fieldset>
+              <a (click)="showData = !showData;" class="btn-style-one text-white"
+              >Click Here</a>
+            </form>
+          </div>
+          <hr>
+          <div class="row" *ngIf="showData">
+            <div class="col-12">
+              <div class="text">
+                <strong>Name : </strong>
+                David Johnson
+              </div>
+              <div class="text">
+                <strong>Date of joining : </strong>
+                21 / 08 / 2021
+              </div>
+              <div class="text">
+                <strong>Renewal Date : </strong>
+                12-12-2021 (EXPIRED)
+              </div>
+              <a (click)="showData = !showData;" class="btn-style-one btn-sm text-white p-2 mt-2"
+              >Renew</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End About Section -->
+
+<app-footer></app-footer>

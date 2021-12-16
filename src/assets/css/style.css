@@ -2998,7 +2998,7 @@
 }
 
 .ui-selectmenu-menu {
-  z-index: 999;
+  z-index: 1051;
 }
 
 .styled-form .form-group .ui-button .ui-icon:before {
@@ -9896,4 +9896,19 @@ button:hover svg {
 }
 .logo-img-sticky{
   max-width: 100px
+}
+
+.info-with-ticks li svg {
+    min-width: 45px;
+}
+.info-with-ticks li {
+    display: flex;
+    align-items: baseline;
+}
+.info-with-ticks li .text {
+    margin-bottom: 0px !important;
+}
+
+.list-style-number li {
+  list-style: auto !important;
 }

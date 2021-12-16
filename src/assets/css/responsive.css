@@ -10,7 +10,7 @@
 
   .main-header .sticky-header .mobile-nav-toggler,
   .main-header .nav-outer .mobile-nav-toggler {
-    display: block;
+    display: block !important;
   }
 
   .header-upper .main-menu,
@@ -89,6 +89,9 @@
   .main-header .main-box .logo-box {
     position: relative;
     text-align: left;
+  }
+  .insurance-section-two .inner-container{
+    border: none !important;
   }
 
   .main-header {
@@ -201,7 +204,7 @@
 
   .main-header .sticky-header .mobile-nav-toggler,
   .main-header .nav-outer .mobile-nav-toggler {
-    display: block;
+    display: block !important;
   }
 }
 

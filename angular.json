@@ -30,18 +30,19 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css",
               "./src/assets/css/bootstrap.css",
               "./src/assets/css/animate.css",
               "./src/assets/css/custom-animate.css",
               "./src/assets/css/flaticon.css",
+              "./src/assets/css/responsive.css",
               "./src/assets/css/footer.css",
               "./src/assets/css/global.css",
               "./src/assets/css/header.css",
               "./src/assets/css/jquery-ui.css",
               "./src/assets/css/owl.css",
               "./src/assets/css/preloader.css",
-              "./src/assets/css/responsive.css",
               "./src/assets/css/style.css",
               "./src/assets/css/jquery.mCustomScrollbar.min.css",
               "./src/assets/css/font-awesome.css"
@@ -131,6 +132,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "BeemaDukaan:build:production",
+            "firebaseProject": "test-pro-53406",
+            "firebaseHostingSite": "test-pro-53406"
           }
         }
       }

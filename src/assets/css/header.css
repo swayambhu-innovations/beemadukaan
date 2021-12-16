@@ -1,4 +1,4 @@
-/*** 
+/***
 
 ====================================================================
 	Header style One
@@ -8,7 +8,7 @@
 
 .main-header {
   position: absolute;
-  z-index: 9999;
+  z-index: 999;
   width: 100%;
 }
 
@@ -45,12 +45,12 @@
 .main-header .header-upper .logo-box {
   position: relative;
   float: left;
-  padding: 30px 0px 20px;
+  padding: 10px 0px 10px;
 }
 
 .main-header .header-upper .nav-outer {
   float: right;
-  padding: 20px 0px;
+  padding: 15px 0px;
 }
 
 .main-header .header-upper .logo-box .logo {
@@ -462,7 +462,7 @@
   display: none;
 }
 
-/*** 
+/***
 
 ====================================================================
 	Mobile Menu
