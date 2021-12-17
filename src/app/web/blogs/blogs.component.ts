@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Entry } from 'contentful';
+import { ContentfulService } from 'src/app/services/contentful.service';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 @Component({
   selector: 'app-blogs',
   templateUrl: './blogs.component.html',
@@ -36,9 +38,18 @@ export class BlogsComponent implements OnInit {
       image : 'news-2.jpg'
     },
   ]
-  constructor() { }
-
+  constructor(private _contentful:ContentfulService) { }
+  private products: Entry<any>[] = [];
   ngOnInit(): void {
+    this._contentful.getProducts()
+    .then(products => {
+      console.log(products);
+      this.products = products;
+      products.forEach(product => {
+        console.log(product.fields.body);
+        console.log(documentToHtmlString(product.fields.mainBody));
+      })
+    });
   }
 
 }

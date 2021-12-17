@@ -12,6 +12,15 @@ export const environment = {
     messagingSenderId: '107471374234',
     measurementId: 'G-8J97RDXTR1',
   },
+  ContentfulConfig:{
+    space: 'vp56pu6guqso',
+    accessToken:
+      'HQ3GDnjMACtX9XAU5Vq0kx6N3QT0nDPArMthFJLhBls',
+  
+    contentTypeIds: {
+      product: 'post',
+    },
+  },
   production: false
 };
 

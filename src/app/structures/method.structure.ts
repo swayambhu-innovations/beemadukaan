@@ -5,3 +5,9 @@ export type PageSetting={
     messageType:'Error'|'Warning'|'Success'|'Info';
     spinner:boolean;
 }
+export type menuItem = {
+    name:string;
+    icon:string;
+    route:string;
+    outlet:string;
+}

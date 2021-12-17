@@ -6,8 +6,10 @@ import { ContactRequest } from '../structures/user.structure';
 })
 export class DatabaseService {
   contactDoc:CollectionReference;
+  serverStatus:DocumentReference;
   constructor(private fs: Firestore) { 
     this.contactDoc = collection(this.fs,'contactRequests');
+    this.serverStatus = doc(this.fs,'admin/serverStatus');
   }
   addContactRequest(name: string, email: string,phoneNumber:string,message: string,age:string,gender: string){
     let data:ContactRequest = {
@@ -25,5 +27,10 @@ export class DatabaseService {
       console.log(doc.id)
     })
   }
-  
+  getServerStatus(){
+    return getDoc(this.serverStatus);
+  }
+  setServerStatus(){
+    return setDoc(this.serverStatus,{status:'running'})
+  }
 }
