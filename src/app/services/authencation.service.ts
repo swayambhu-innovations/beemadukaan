@@ -1,6 +1,6 @@
 import { Injectable, Optional } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInWithPhoneNumber, FacebookAuthProvider } from '@angular/fire/auth';
+import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInWithPhoneNumber, FacebookAuthProvider, UserCredential } from '@angular/fire/auth';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -35,21 +35,21 @@ export class AuthencationService {
   // Read functions end
   // Sign in functions start
   public async signInWithGoogle(){
-    let data = signInWithPopup(this.auth, new GoogleAuthProvider()).then((credentials:any)=>{
+    let data = signInWithPopup(this.auth, new GoogleAuthProvider()).then((credentials:UserCredential)=>{
       console.log(credentials);
     });
     console.log(data);
   }
 
   public async loginAnonymously() {
-    let data = signInAnonymously(this.auth).then((credentials:any)=>{
+    let data = signInAnonymously(this.auth).then((credentials:UserCredential)=>{
       console.log(credentials);
     });
     console.log(data);
   }
 
   public async loginEmailPassword(email: string, password: string){
-    let data = await signInWithEmailAndPassword(this.auth, email, password).then((credentials:any)=>{
+    let data = await signInWithEmailAndPassword(this.auth, email, password).then((credentials:UserCredential)=>{
       console.log(credentials);
     });
     console.log(data);

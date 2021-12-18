@@ -12,10 +12,18 @@ export class ContentfulService {
     accessToken: environment.ContentfulConfig.accessToken
   });
 
-  getProducts(query?: object): Promise<Entry<any>[]> {
+  getPosts(query?: object): Promise<Entry<any>[]> {
     return this.cdaClient.getEntries(Object.assign({
       content_type: environment.ContentfulConfig.contentTypeIds.product
     }, query))
     .then(res => res.items);
+  }
+  getPost(id:string,query?: object){
+    return this.cdaClient.getEntries(Object.assign({
+      content_type: environment.ContentfulConfig.contentTypeIds.product
+    }, query))
+    .then(res => {
+      return res.items.find(item => item.sys.id === id);
+    });
   }
 }

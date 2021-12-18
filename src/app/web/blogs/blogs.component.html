@@ -47,7 +47,7 @@
         <div class="news-block col-lg-4 col-md-6 col-sm-12" *ngFor="let blog of blogs; index as i;">
           <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="image">
-              <a [routerLink]="['/blogs', blog.id]"><img src="assets/images/resource/{{ blog.image }}" alt="" /></a>
+              <a [routerLink]="['/blogs', blog.id]"><img src="{{ blog.image }}" alt="" /></a>
             </div>
             <div class="lower-content">
               <ul class="post-meta">
@@ -58,6 +58,7 @@
               <h4>
                 <a [routerLink]="['/blogs', blog.id]">{{ blog.name }}</a>
               </h4>
+              <p  [routerLink]="['/blogs', blog.id]">{{blog.description}}</p>
               <a [routerLink]="['/blogs', blog.id]" class="read-more">Read More</a>
             </div>
           </div>

@@ -17,7 +17,6 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 import { ContentfulService } from '../services/contentful.service';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -33,7 +32,7 @@ import { ContentfulService } from '../services/contentful.service';
     ContactUsComponent,
     BlogsComponent,
     FeedbackComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
   ],
   providers:[
     ContentfulService

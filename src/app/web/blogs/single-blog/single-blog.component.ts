@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ContentfulService } from 'src/app/services/contentful.service';
+import { blog } from 'src/app/structures/method.structure';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 
 @Component({
   selector: 'app-single-blog',
@@ -7,56 +10,27 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./single-blog.component.css']
 })
 export class SingleBlogComponent implements OnInit {
-  blogs : any = [
-    {
-      id : 1,
-      name : 'Which Policy is best for you?',
-      date : '22 OCT, 2021',
-      description : 'This is a blog description',
-      image : 'news-1.jpg'
-    },
-    {
-      id : 2,
-      name : 'Which Insurance is good?',
-      date : '25 OCT, 2021',
-      description : 'This is a blog description',
-      image : 'news-2.jpg'
-    },
-    {
-      id : 3,
-      name : 'What is Car Insurance?',
-      date : '18 OCT, 2021',
-      description : 'This is a blog description',
-      image : 'news-1.jpg'
-    },
-    {
-      id : 4,
-      name : 'How to compare rates?',
-      date : '22 OCT, 2021',
-      description : 'This is a blog description',
-      image : 'news-2.jpg'
-    },
-  ]
   blogID : any;
-  blogData : any;
-  constructor(private activeRoute : ActivatedRoute) {
+  blogData : blog;
+  constructor(private activeRoute : ActivatedRoute,private _contentful:ContentfulService) {
     this.activeRoute.queryParams.subscribe((qp) => {
-      console.log('Get Router Params:', this.activeRoute.snapshot.params.id);
+      // console.log('Get Router Params:', this.activeRoute.snapshot.params.id);
       this.blogID = this.activeRoute.snapshot.params.id
     });
-    this.getBlogData();
   }
-
   ngOnInit(): void {
-
+    let data = this._contentful.getPost(this.blogID);
+    data.then((res: any) => {
+      let postDate = (new Date(res.fields.postDate)).toLocaleDateString();
+      this.blogData = {
+        id:res.sys.id,
+        name:res.fields.title,
+        date:postDate,
+        image:res.fields.featuredMedia.fields.file.url,
+        description:res.fields.excerpt,
+        body:documentToHtmlString(res.fields.mainBody),
+        author:res.fields.authorName,
+      };
+    })
   }
-  getBlogData() {
-    if(this.blogID != null){
-      console.log(this.blogID);
-      let data  = this.blogs.filter((x : any) => x.id == this.blogID)
-      console.log(data)
-      this.blogData = data[0]
-    }
-  }
-
 }

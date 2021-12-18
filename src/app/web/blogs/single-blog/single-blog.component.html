@@ -3,7 +3,7 @@
   <section class="page-title">
     <div class="background-container">
       <img class="left-image" src="https://themeim.com/demo/carsore/images/background/header-left-bg.png" alt="">
-      <img class="right-image" src="https://themeim.com/demo/carsore/images/background/blog-right-bg.png" alt="">
+      <img class="right-image" [src]="blogData.image" alt="">
     </div>
     <div class="service-container">
       <div class="section-icons-outer parallax-scene-1" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
@@ -11,7 +11,7 @@
       </div>
 
       <div class="auto-container">
-        <h3 class="text-white">{{ blogData?.name }}</h3>
+        <h3 class="text-white">{{ blogData.name }}</h3>
         <ul class="page-breadcrumb">
           <li><a href="index.html">home</a></li>
           <li>Blog</li>
@@ -33,104 +33,17 @@
                 <img src="images/resource/news-4.jpg" alt="">
               </div>
               <div class="lower-content">
-                <h3>How to apply on carsore?</h3>
+                <h3>{{blogData.name}}</h3>
                 <ul class="post-meta">
                   <li>
-                    <span class="icon"><img src="images/resource/author-3.jpg" alt=""></span>Luiz Mark
+                    <span class="icon"><img src="images/resource/author-3.jpg" alt=""></span>{{blogData.author}}
                   </li>
                   <li>
-                    <span class="icon fa fa-calendar"></span>22 OCT, 2021
-                  </li>
-                  <li>
-                    <span class="icon fa fa-envelope"></span>22 comments
-                  </li>
-                  <li>
-                    <span class="icon fa fa-tags"></span>Account tips
+                    <span class="icon fa fa-calendar"></span>{{blogData.date}}
                   </li>
                 </ul>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged.
-                  It was popularised in the 1960s with the release of
-                  Letraset sheets containing Lorem Ipsum passages, and
-                  more recently with desktop publishing software like
-                  Aldus PageMaker including versions of Lorem Ipsum.Lorem
-                  Ipsum is simply dummy text the
-                </p>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five.
-                </p>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged.
-                </p>
-                <blockquote>
-                  <span class="icon flaticon-quotation-1"></span>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Also Lorem Ipsum has been the
-                  industry's standard dummy text ever since the ideas
-                  1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five.
-                </blockquote>
-                <h3>How to apply on carsore?</h3>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five.
-                </p>
-                <div class="gallery-column">
-                  <div class="row clearfix">
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                      <!-- Blog Video Box -->
-                      <div class="blog-video-box">
-                        <figure class="video-image">
-                          <img src="images/resource/news-5.jpg" alt="">
-                        </figure>
-                        <a href="https://www.youtube.com/watch?v=kxPCFljwJws" class="lightbox-image overlay-box"><span class="flaticon-play-arrow"><i class="ripple"></i></span></a>
-                      </div>
-                    </div>
-                    <div class="column col-lg-6 col-md-6 col-sm-12">
-                      <div class="image">
-                        <img src="images/resource/news-6.jpg" alt="">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book..
-                </p>
-                <p>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s,
-                  when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book. It has
-                  survived not only five centuries, but also the leap into
-                  electronic typesetting, remaining essentially unchanged
-                </p>
+                <main [innerHTML]="blogData.body">
+                </main>
               </div>
 
               <!-- Blog Author Box -->

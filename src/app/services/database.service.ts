@@ -33,4 +33,5 @@ export class DatabaseService {
   setServerStatus(){
     return setDoc(this.serverStatus,{status:'running'})
   }
+  
 }

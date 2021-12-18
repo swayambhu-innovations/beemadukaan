@@ -1,9 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { DynamicScriptLoaderService } from './web/includes/services/dynamic-script-loader.service';
-import {MatFormFieldModule} from '@angular/material/form-field';
 import { DatabaseService } from './services/database.service';
 
 declare var $:any;

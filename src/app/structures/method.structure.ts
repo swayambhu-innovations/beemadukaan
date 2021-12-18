@@ -11,3 +11,19 @@ export type menuItem = {
     route:string;
     outlet:string;
 }
+export type post = {
+    id:string;
+    name:string;
+    date:string;
+    description:string;
+    image:string;
+}
+export type blog = {
+    id:string;
+    name:string;
+    date:string;
+    description:string;
+    image:string;
+    body:string;
+    author:string;
+}
