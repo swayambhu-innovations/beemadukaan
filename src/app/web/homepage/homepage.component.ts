@@ -17,6 +17,4 @@ export class HomepageComponent implements OnInit {
       $("#addons-options-modal").modal('show');
     }, 5000);
   }
-
-
 }

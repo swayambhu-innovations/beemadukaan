@@ -6,7 +6,7 @@ import { ContactRequest } from '../structures/user.structure';
 })
 export class DatabaseService {
   contactDoc:CollectionReference;
-  constructor(private fs: Firestore) { 
+  constructor(private fs: Firestore) {
     this.contactDoc = collection(this.fs,'contactRequests');
   }
   addContactRequest(name: string, email: string,phoneNumber:string,message: string,age:string,gender: string){
@@ -23,7 +23,8 @@ export class DatabaseService {
     addDoc(this.contactDoc,data).then((doc)=>{
       console.log(doc);
       console.log(doc.id)
+
     })
   }
-  
+
 }

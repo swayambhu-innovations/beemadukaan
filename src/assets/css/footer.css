@@ -180,6 +180,7 @@
 
 .quote-form .form-group input[type="text"],
 .quote-form .form-group input[type="email"],
+.quote-form .form-group input[type="number"],
 .quote-form .form-group input[type="tel"],
 .quote-form .form-group input[type="url"],
 .quote-form .form-group textarea,

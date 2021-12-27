@@ -50,7 +50,7 @@
   }
 
   h3 {
-    font-size: var(--font-26);
+    font-size: var(--font-26) !important;
   }
 
   .services-detail-section .content-column .bold-text,
@@ -356,7 +356,6 @@
     right: 10px;
     padding-right: 0;
   }
-
   .sec-title .text br,
   .insurance-block .inner-box::before,
   .fact-counter .column .inner::before,
@@ -365,15 +364,18 @@
   }
 
   .choose-section .content-column .choose-list li strong {
-    font-size: var(--font-20);
+    font-size: var(--font-20) !important;
   }
 
   .accordion-box .block .acc-btn {
-    font-size: var(--font-20);
+    font-size: var(--font-18) !important;
   }
 
+  .text, p{
+    font-size: var(--font-15) !important;
+  }
   h2 {
-    font-size: var(--font-30);
+    font-size: var(--font-30) !important;
   }
 
   .testimonial-block .inner-box .quote-icon {
@@ -442,13 +444,18 @@
 
 @media only screen and (max-width: 479px) {
   h1 {
-    font-size: var(--font-34);
+    font-size: var(--font-34) !important;
+    line-height: 1.4 !important;
   }
 
   h2 {
-    font-size: var(--font-26);
+    font-size: var(--font-26) !important;
+    line-height: 1.2 !important;
   }
 
+  .btn-style-one {
+    padding: 8px 12px 8px !important
+  }
   .choose-section .content-column .choose-list li {
     padding-left: var(--padding-zero);
   }

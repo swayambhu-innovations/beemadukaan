@@ -357,7 +357,7 @@
     $(".accordion-box").on("click", ".acc-btn", function () {
       var outerBox = $(this).parents(".accordion-box");
       var target = $(this).parents(".accordion");
-
+      console.log("clicked")
       if ($(this).next(".acc-content").is(":visible")) {
         //return false;
         $(this).removeClass("active");

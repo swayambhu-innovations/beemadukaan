@@ -21,6 +21,9 @@ import { MatInputModule } from '@angular/material/input';
 import { DatabaseService } from './services/database.service';
 import { AuthencationService } from './services/authencation.service';
 import { UserDataService } from './services/user-data.service';
+import { AuthModule } from './auth/auth.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AdminModule } from './admin/admin.module';
 
 
 
@@ -32,6 +35,8 @@ import { UserDataService } from './services/user-data.service';
     BrowserModule,
     AppRoutingModule,
     WebModule,
+    AuthModule,
+    AdminModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
     provideAuth(() => getAuth()),
@@ -44,7 +49,9 @@ import { UserDataService } from './services/user-data.service';
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     DynamicScriptLoaderService,

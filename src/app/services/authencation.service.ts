@@ -1,6 +1,6 @@
 import { Injectable, Optional } from '@angular/core';
 import { Firestore, collectionData, collection } from '@angular/fire/firestore';
-import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInWithPhoneNumber, FacebookAuthProvider } from '@angular/fire/auth';
+import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInWithPhoneNumber, FacebookAuthProvider, createUserWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -23,7 +23,7 @@ export class AuthencationService {
   }
   private readonly userDisposable: Subscription|undefined;
   public readonly user: Observable<User | null> = EMPTY;
-  
+
   // Read functions start
   public get isLoggedIn(): boolean {
     return this.loggedIn;
@@ -55,6 +55,15 @@ export class AuthencationService {
     console.log(data);
   }
   // Sign in functions end
+  public async signUpWithEmailAndPassword(email: string, password: string,username:string){
+    console.log("Signing Up")
+    let data = createUserWithEmailAndPassword(this.auth, email, password).then((credentials:UserCredential)=>{
+      console.log(credentials);
+    }).catch((error)=>{
+      console.log(error);
+    });
+    console.log('signinData',data);
+  }
   // Sign out functions start
   public async logout() {
     return await signOut(this.auth);

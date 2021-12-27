@@ -32,6 +32,7 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
+              "./src/assets/css/style.css",
               "./src/assets/css/bootstrap.css",
               "./src/assets/css/animate.css",
               "./src/assets/css/custom-animate.css",
@@ -43,7 +44,6 @@
               "./src/assets/css/jquery-ui.css",
               "./src/assets/css/owl.css",
               "./src/assets/css/preloader.css",
-              "./src/assets/css/style.css",
               "./src/assets/css/jquery.mCustomScrollbar.min.css",
               "./src/assets/css/font-awesome.css"
             ],
