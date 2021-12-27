@@ -1,21 +1,5 @@
 {
-  "targets": {
-    "test-pro-53406": {
-      "hosting": {
-        "BeemaDukaan": [
-          "test-pro-53406"
-        ]
-      }
-    },
-    "beema-dukaan": {
-      "hosting": {
-        "BeemaDukaan": [
-          "beema-dukaan"
-        ]
-      }
-    }
-  },
   "projects": {
-    "default": "beema-dukaan"
+    "default": "beemadukaan"
   }
 }
