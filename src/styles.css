@@ -37,6 +37,12 @@ color : #000 !important;
   color: #fff !important;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
+.contactRequestsModal .modal-body {
+  padding-bottom: 0;
+}
+.contactRequestsModal .modal-content {
+  padding: 20px;
+}
 @media screen and (min-width : 576px){
   .modal-dialog{
     max-width: 50% !important;
