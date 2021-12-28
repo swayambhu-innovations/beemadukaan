@@ -2,3 +2,47 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.quote-form input::placeholder, .quote-form select::placeholder {
+  color: #000 !important;
+  font-weight: 600;
+}
+.quote-form input:-ms-input-placeholder, .quote-form select:-ms-input-placeholder {
+  color: #000 !important;
+  font-weight: 600;
+}
+.quote-form input::-ms-input-placeholder, .quote-form select::-ms-input-placeholder {
+  color: #000 !important;
+  font-weight: 600;
+}
+.quote-form input, .quote-form select {
+background : #ffffff !important;
+color : #000 !important;
+}
+.quote-form .form-group .ui-selectmenu-button.ui-button{
+  color : #000 !important;
+  background : #fff !important;
+  font-weight: 600;
+}
+.ui-front {
+  z-index: 1051 !important;
+}
+.contactRequestsModal .modal-header, .contactRequestsModal .modal-footer {
+  border: none;
+}
+.contactRequestsModal .bg-btn-pop {
+  width: 49%;
+  display: flex;
+  justify-content: center;
+  background: #4298EF !important;
+  color: #fff !important;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+@media screen and (min-width : 576px){
+  .modal-dialog{
+    max-width: 50% !important;
+  }
+}
+.quote-form button:before{
+  right: 40px !important;
+  top: 10px !important;
+}

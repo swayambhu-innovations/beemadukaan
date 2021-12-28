@@ -1,8 +1,12 @@
 <div class="form-box">
+  <div class="img-top">
+    <img src="assets/images/background/pattern-top.png" alt="Sign up to beema dukaan" class="top-img">
+  </div>
   <main class="form-signin text-center">
     <form [formGroup]="signupForm" (ngSubmit)="signupProcess(signupForm)" novalidate>
       <img class="mb-4" src="assets/images/logo-main.jpeg" alt="" width="150" height="auto">
-      <h1 class="h3 mb-3 fw-normal">Sign up with Beema Dukaan</h1>
+      <h1 class="h4 mb-3 fw-normal">Don't have an account ?</h1>
+      <h5 class="mb-3"> Register with us!</h5>
       <div class="form-floating">
         <input type="text" class="form-control" placeholder="Full Name" formControlName="name" [ngClass]="{'has-error': formErrors.name}">
         <span class="text-danger" *ngIf="formErrors.name" [innerHTML]="formErrors.name"></span>
@@ -23,4 +27,7 @@
     </form>
     <button class="btn btn-primary btn-block mt-3">Signup with google</button>
   </main>
+  <div class="img-bottom">
+    <img src="assets/images/background/pattern-bottom.png" alt="Sign up to beema dukaan" class="top-img">
+  </div>
   </div>
