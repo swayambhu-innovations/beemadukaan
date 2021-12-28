@@ -28,7 +28,7 @@
                 <input type="number" name="phoneNumber" placeholder="Your Contact Number" required="" #phonenumber />
               </div>
               <div class="form-group">
-                <select class="custom-select-box" #age>
+                <select class="custom-select-box" #type>
                   <option>Select Type</option>
                   <option value="General insurace">General Insurace</option>
                   <option value="Car insurace">Car Insurace</option>
@@ -47,7 +47,7 @@
               <div class="form-group d-flex">
                 <button type="button" class="btn bg-btn-pop text-black mr-2" data-dismiss="modal">Close</button>
                 <button type="button" class="btn bg-btn-pop text-black"
-                (click)="dataService.addContactRequest(name.value, email.value, phonenumber.value,'', age.value,gender.value)">Confirm</button>
+                (click)="dataService.addContactRequest(name.value, email.value, phonenumber.value,type.value,gender.value)">Confirm</button>
               </div>
             </div>
           </form>

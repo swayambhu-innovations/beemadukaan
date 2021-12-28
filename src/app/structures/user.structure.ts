@@ -83,9 +83,8 @@ export type ContactRequest = {
     name:string;
     email:string;
     phoneNumber:string;
-    message:string;
+    type:string;
     date:Date;
-    age:string;
     gender:string;
 }
 

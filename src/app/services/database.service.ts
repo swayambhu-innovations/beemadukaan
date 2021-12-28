@@ -14,14 +14,13 @@ export class DatabaseService {
     this.usersDoc = collection(this.fs,'users');
     this.serverStatus = doc(this.fs,'admin/serverStatus');
   }
-  addContactRequest(name: string, email: string,phoneNumber:string,message: string,age:string,gender: string){
+  addContactRequest(name: string, email: string,phoneNumber:string,type:string,gender: string){
     let data:ContactRequest = {
       name: name,
       email: email,
       phoneNumber: phoneNumber,
-      message: message,
       date: new Date(),
-      age:age,
+      type:type,
       gender:gender
     }
     console.log('Adding data',data)
