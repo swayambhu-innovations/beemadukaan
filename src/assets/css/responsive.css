@@ -283,16 +283,8 @@
     width: auto;
   }
 
-  .main-header .sticky-header .logo {
-    padding: 15px 0px !important;
-  }
-
   .main-header .sticky-header .outer-box {
     display: none;
-  }
-
-  .main-header .sticky-header .mobile-nav-toggler {
-    padding: 32px 0px;
   }
 
   h1 {

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $:any;
 @Component({
   selector: 'app-car-insurance',
   templateUrl: './car-insurance.component.html',
@@ -10,6 +11,7 @@ export class CarInsuranceComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    $.getScript('assets/js/accordion.js');
   }
 
 }

@@ -1,0 +1,38 @@
+
+<app-header></app-header>
+
+<div class="container-fluid">
+  <div class="row" style="min-height: 100vh;">
+    <app-sidebar id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white shadow sidebar collapse"></app-sidebar>
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Payment Details</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 mb-3" *ngFor="let data of mainData; index as i;">
+          <div class="card shadow">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-3"><img src="{{ data.photoURL }}" alt="{{ data.displayName }}" class="img-avatar"></div>
+                <div class="col-9">
+                  <div class="card-title">#Request ID : {{ data.userId }}</div>
+                <h6 class="card-subtitle mb-2 text-muted">Name: {{ data.displayName }}</h6>
+                <div class="small">Total Cashback :: {{ data.totalCashback }}</div>
+                <div class="small">Total Orders :: {{ data.totalOrders }}</div>
+                </div>
+              </div>
+              <hr>
+              <p class="order-box"><strong>Personal Details</strong></p>
+              <div class="d-flex mb-2" *ngIf="data.email"><span class="w-50">Email</span> <span class="text-muted text-right w-50"><a href="mailto:{{ data.email }}">{{ data.email }}</a></span></div>
+              <div class="d-flex mb-2" *ngIf="data.phoneNumber"><span class="w-50">Contact number</span> <span class="text-muted text-right w-50"><a href="tel:{{ data.phoneNumber }}">{{ data.phoneNumber }}</a></span></div>
+              <div class="d-flex mb-2" *ngIf="data.age"><span class="w-75">Age</span> <span class="text-muted text-right w-25">{{ data.age }}</span></div>
+              <div class="d-flex mb-2" *ngIf="data.gender"><span class="w-75">Gender</span> <span class="text-muted text-right w-25">{{ data.gender }}</span></div>
+              <hr>
+              <a href="#" class="card-link">Resolve</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

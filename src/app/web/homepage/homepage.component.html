@@ -740,72 +740,18 @@
                 <!-- Accordian Box -->
                 <ul class="accordion-box">
                   <!--Block-->
-                  <li class="accordion block active-block">
-                    <div class="acc-btn active">
+                  <li class="accordion block" [ngClass]="item.isActive ? 'active-block' : ' ' " (click)="toggleAccordian($event, i)" *ngFor="let item of data; index as i;"> <!--  here we need active-block class -->
+                    <div class="acc-btn " [ngClass]="item.isActive ? 'active' : ' ' "> <!--  here we need active class -->
                       <div class="icon-outer">
                         <span class="icon icon-plus fa fa-plus"></span>
                         <span class="icon icon-minus fa fa-minus"></span>
                       </div>
-                      Is it mandatory to have car insurance in India?​
+                      {{ item.title }}
                     </div>
-                    <div class="acc-content current">
+                    <div class="acc-content " [ngClass]="item.isActive ? 'current' : ' ' "> <!--  here we need current class -->
                       <div class="content">
                         <div class="text">
-                          Yes, motor insurance is mandatory in India. You have to have at least a third-party car insurance policy in India. It is a statutory requirement as per the Motor Vehicles Act, 1988.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <!--Block-->
-                  <li class="accordion block ">
-                    <div class="acc-btn ">
-                      <div class="icon-outer">
-                        <span class="icon icon-plus fa fa-plus"></span>
-                        <span class="icon icon-minus fa fa-minus"></span>
-                      </div>
-                      What is car insurance?
-                    </div>
-                    <div class="acc-content ">
-                      <div class="content">
-                        <div class="text">
-                          It is an insurance policy that protects cars against damage or loss resulting from an accident, theft or any other third-party liability. You can buy car insurance online or by visiting a Liberty General Insurance branch.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <!--Block-->
-                  <li class="accordion block">
-                    <div class="acc-btn">
-                      <div class="icon-outer">
-                        <span class="icon icon-plus fa fa-plus"></span>
-                        <span class="icon icon-minus fa fa-minus"></span>
-                      </div>
-                      When do you buy a commercial car insurance policy?
-                    </div>
-                    <div class="acc-content">
-                      <div class="content">
-                        <div class="text">
-                          A commercial car insurance policy is required if you use or operate a commercial vehicle up to 3500 GVW. For example, a black and yellow taxi.
-                        </div>
-                      </div>
-                    </div>
-                  </li>
-
-                  <!--Block-->
-                  <li class="accordion block">
-                    <div class="acc-btn">
-                      <div class="icon-outer">
-                        <span class="icon icon-plus fa fa-plus"></span>
-                        <span class="icon icon-minus fa fa-minus"></span>
-                      </div>
-                      Why purchase car insurance online?
-                    </div>
-                    <div class="acc-content">
-                      <div class="content">
-                        <div class="text">
-                          It is beneficial to buy a car policy online in India, as there are various policies from which to choose. You can make more informed decisions. When you buy any car policy online, research thoroughly and then decide. Buying online also helps you save time and money. You can also get more benefits.
+                          {{ item.description }}
                         </div>
                       </div>
                     </div>

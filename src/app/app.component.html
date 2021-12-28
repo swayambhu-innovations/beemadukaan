@@ -28,7 +28,13 @@
                 <input type="number" name="phoneNumber" placeholder="Your Contact Number" required="" #phonenumber />
               </div>
               <div class="form-group">
-                <input type="number" name="age" placeholder="Your Age" required="" min="18" max="100" #age />
+                <select class="custom-select-box" #age>
+                  <option>Select Type</option>
+                  <option value="General insurace">General Insurace</option>
+                  <option value="Car insurace">Car Insurace</option>
+                  <option value="Bike insurace">Bike Insurace</option>
+                  <option value="Health insurace">Health Insurace</option>
+                </select>
               </div>
               <div class="form-group">
                 <select class="custom-select-box" #gender>
