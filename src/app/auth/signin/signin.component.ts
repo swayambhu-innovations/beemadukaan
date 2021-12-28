@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonFunction } from 'src/app/common';
 import { AuthencationService } from 'src/app/services/authencation.service';
 
@@ -15,7 +16,7 @@ export class SigninComponent implements OnInit {
     email: '',
     password: '',
   };
-  constructor(private fb : FormBuilder, private authService : AuthencationService) {
+  constructor(private fb : FormBuilder, private authService : AuthencationService, private router : Router) {
     this.signinForm = this.fb.group({
       email : [
         null,
@@ -54,6 +55,7 @@ export class SigninComponent implements OnInit {
     this._generateErrors();
     if (this.signinForm.valid) {
       this.authService.loginEmailPassword(formdata.value.email, formdata.value.password);
+      this.router.navigateByUrl('/admin/dashboard')
     }
   }
   // ERROR GENERATIONS

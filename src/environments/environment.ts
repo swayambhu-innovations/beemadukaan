@@ -4,15 +4,23 @@
 
 export const environment = {
   firebase: {
-    projectId: 'beema-dukaan',
-    appId: '1:107471374234:web:04d33f26d679dbffda9c23',
-    storageBucket: 'beema-dukaan.appspot.com',
-    apiKey: 'AIzaSyAd6BSsdMow7xMU11UEJ2k-oGd-nZ8WoBU',
-    authDomain: 'beema-dukaan.firebaseapp.com',
-    messagingSenderId: '107471374234',
-    measurementId: 'G-8J97RDXTR1',
+    apiKey: 'AIzaSyDYoTC50N48sHyRJ0rLCLc1MhO7JSC2FJI',
+    authDomain: 'beemadukaan.firebaseapp.com',
+    databaseURL:'https://beemadukaan-default-rtdb.asia-southeast1.firebasedatabase.app',
+    projectId: 'beemadukaan',
+    storageBucket: 'beemadukaan.appspot.com',
+    messagingSenderId: '876938924830',
+    appId: '1:876938924830:web:cff1e8f5ba64828a7bef0f',
+    measurementId: 'G-PSCK7KKCTN',
   },
-  production: false
+  ContentfulConfig: {
+    space: 'vp56pu6guqso',
+    accessToken: 'HQ3GDnjMACtX9XAU5Vq0kx6N3QT0nDPArMthFJLhBls',
+    contentTypeIds: {
+      product: 'post',
+    },
+  },
+  production: false,
 };
 
 /*

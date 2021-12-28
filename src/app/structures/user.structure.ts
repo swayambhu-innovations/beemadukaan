@@ -2,7 +2,7 @@ export type UserData={
     userId:string;
     displayName:string;
     email:string;
-    phoneNumber?:number;
+    phoneNumber?:string;
     photoURL:string;
     emailVerified:boolean;
     firstLogin:boolean;

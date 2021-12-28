@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CommonFunction } from 'src/app/common';
 import { AuthencationService } from 'src/app/services/authencation.service';
 
@@ -18,7 +19,7 @@ export class SignupComponent implements OnInit {
     name : '',
     phone : ''
   };
-  constructor(private fb : FormBuilder, private authService : AuthencationService) {
+  constructor(private fb : FormBuilder, private authService : AuthencationService, private router : Router) {
     this.signupForm = this.fb.group({
       name : [
         null,
@@ -79,7 +80,9 @@ export class SignupComponent implements OnInit {
     this._generateErrors();
     if (this.signupForm.valid) {
       this.authService.signUpWithEmailAndPassword(formdata.value.email, formdata.value.password, formdata.value.name);
+      this.router.navigateByUrl('/admin/dashboard')
     }
+
   }
   // ERROR GENERATIONS
   private _generateErrors() {

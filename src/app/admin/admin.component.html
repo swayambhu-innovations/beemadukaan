@@ -1,0 +1,26 @@
+<section>
+    <header>
+        <h1>Admin Panel</h1>
+        <img src="./assets/images/logo-main.jpg" alt="Beema Dukaan Logo" >
+        <div id="status">
+            <span *ngIf="serverStatus!='unknown'">{{serverStatus}}</span>
+            <mat-icon class="material-icons-outlined" [ngStyle]="{'color': serverStatusColor}">
+                dns
+            </mat-icon>
+        </div>
+    </header>
+    <div>
+        <aside>
+            <ul>
+                <li [routerLink]="item.route" *ngFor="let item of menuItems" class="sidebar-item">
+                    <mat-icon class="material-icons-outlined">{{item.icon}}</mat-icon>
+                    <p>{{item.name}}</p>
+                </li>
+            </ul>
+        </aside>
+        <main>
+            <router-outlet name="adminOutlet"></router-outlet>
+        </main>
+    </div>
+    <footer></footer>
+</section>

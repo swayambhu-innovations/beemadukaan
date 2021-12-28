@@ -15,7 +15,7 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { BlogsComponent } from './blogs/blogs.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
-
+import { ContentfulService } from '../services/contentful.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,10 @@ import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
     ContactUsComponent,
     BlogsComponent,
     FeedbackComponent,
-    SingleBlogComponent
+    SingleBlogComponent,
+  ],
+  providers:[
+    ContentfulService
   ],
   imports: [
     CommonModule,

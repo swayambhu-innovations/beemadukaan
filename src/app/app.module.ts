@@ -24,6 +24,7 @@ import { UserDataService } from './services/user-data.service';
 import { AuthModule } from './auth/auth.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
+import { DataProvider } from './providers/data.provider';
 
 
 
@@ -58,6 +59,7 @@ import { AdminModule } from './admin/admin.module';
     DatabaseService,
     AuthencationService,
     UserDataService,
+    DataProvider
   ],
   bootstrap: [AppComponent]
 })
