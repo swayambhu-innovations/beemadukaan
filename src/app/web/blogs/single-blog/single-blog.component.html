@@ -1,10 +1,9 @@
 <app-header></app-header>
-<button (click)="addComment()">Add comment</button>
  <!-- Page Title -->
   <section class="page-title">
     <div class="background-container">
       <img class="left-image" src="https://themeim.com/demo/carsore/images/background/header-left-bg.png" alt="">
-      <img class="right-image" [src]="blogData.image" alt="">
+      <img class="right-image" [src]="blogData?.image" alt="">
     </div>
     <div class="service-container">
       <div class="section-icons-outer parallax-scene-1" style="transform: translate3d(0px, 0px, 0px) rotate(0.0001deg); transform-style: preserve-3d; backface-visibility: hidden; pointer-events: none;">
@@ -12,7 +11,7 @@
       </div>
 
       <div class="auto-container">
-        <h3 class="text-white">{{ blogData.name }}</h3>
+        <h3 class="text-white">{{ blogData?.name }}</h3>
         <ul class="page-breadcrumb">
           <li><a href="index.html">home</a></li>
           <li>Blog</li>
@@ -34,16 +33,16 @@
                 <img src="images/resource/news-4.jpg" alt="">
               </div>
               <div class="lower-content">
-                <h3>{{blogData.name}}</h3>
+                <h3>{{blogData?.name}}</h3>
                 <ul class="post-meta">
                   <li>
-                    <span class="icon"><img src="images/resource/author-3.jpg" alt=""></span>{{blogData.author}}
+                    <span class="icon"><img src="images/resource/author-3.jpg" alt=""></span>{{blogData?.author}}
                   </li>
                   <li>
-                    <span class="icon fa fa-calendar"></span>{{blogData.date}}
+                    <span class="icon fa fa-calendar"></span>{{blogData?.date}}
                   </li>
                 </ul>
-                <main [innerHTML]="blogData.body">
+                <main [innerHTML]="blogData?.body">
                 </main>
               </div>
 
@@ -84,107 +83,44 @@
                   <h4>Comments by User</h4>
                 </div>
                 <div class="comments-outer">
-                  <div class="comment-box">
+                  <div class="comment-box" *ngFor="let item of commentsList">
                     <div class="comment">
                       <div class="author-thumb">
                         <img src="images/resource/author-5.jpg" alt="">
                       </div>
                       <div class="comment-info clearfix">
-                        <strong>Paris Romaguera</strong>
+                        <strong>{{ item?.displayName }}</strong>
                       </div>
                       <div class="text">
-                        Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum has
-                        industry's standard dummy text ever since the
-                        1500s.
+                        {{ item?.comment }}
                       </div>
                       <div class="comment-time">SEP 22, 2021</div>
-                      <a class="theme-btn reply-btn" href="#"> Reply</a>
-                    </div>
-                  </div>
-
-                  <div class="comment-box reply-comment">
-                    <div class="comment">
-                      <div class="author-thumb">
-                        <img src="images/resource/author-5.jpg" alt="">
-                      </div>
-                      <div class="comment-info clearfix">
-                        <strong>Paris Romaguera</strong>
-                      </div>
-                      <div class="text">
-                        Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum has nobeen
-                        dummy text ever since the 1500s.
-                      </div>
-                      <div class="comment-time">SEP 22, 2021</div>
-                      <a class="theme-btn reply-btn" href="#"> Reply</a>
-                    </div>
-                  </div>
-
-                  <div class="comment-box">
-                    <div class="comment">
-                      <div class="author-thumb">
-                        <img src="images/resource/author-5.jpg" alt="">
-                      </div>
-                      <div class="comment-info clearfix">
-                        <strong>Paris Romaguera</strong>
-                      </div>
-                      <div class="text">
-                        Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum has nobeen
-                        the industry's standard dummy text ever since the
-                        1500s.
-                      </div>
-                      <div class="comment-time">SEP 22, 2021</div>
-                      <a class="theme-btn reply-btn" href="#"> Reply</a>
-                    </div>
-                  </div>
-
-                  <div class="comment-box">
-                    <div class="comment">
-                      <div class="author-thumb">
-                        <img src="images/resource/author-5.jpg" alt="">
-                      </div>
-                      <div class="comment-info clearfix">
-                        <strong>Paris Romaguera</strong>
-                      </div>
-                      <div class="text">
-                        Lorem Ipsum is simply dummy text of the printing
-                        and typesetting industry. Lorem Ipsum has nobeen
-                        the industry's standard dummy text ever since the
-                        1500s.
-                      </div>
-                      <div class="comment-time">SEP 22, 2021</div>
-                      <a class="theme-btn reply-btn" href="#"> Reply</a>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Comment Form -->
-              <div class="comment-form">
+              <div class="comment-form" *ngIf="isLoggedInUser === true">
                 <div class="group-title">
                   <h4>Leave a comment</h4>
                 </div>
-                <form method="post" action="contact.html">
+                <form [formGroup]="commentForm" (ngSubmit)="addComment(commentForm)" novalidate>
                   <div class="row clearfix">
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                      <label>Enter Your Name*</label>
+                      <input type="text" name="name" formControlName="name" placeholder="Your Name" required="" pwa2-uuid="EDITOR/input-375-F9B-2BB90-5A2" pwa-fake-editor="">
+                      <span *ngIf="formErrors.name" class="help-block text-danger pt-1" [innerHTML]="formErrors.name" ></span>
+                    </div>
                     <div class="
                         col-lg-12 col-md-12 col-sm-12 col-xs-12
                         form-group
                       ">
-                      <label>Your Message</label>
+                      <label>Your Comment</label>
+                      <textarea name="comment" rows="5" class="" formControlName="comment"></textarea>
+                      <span *ngIf="formErrors.comment" class="help-block text-danger pt-1" [innerHTML]="formErrors.comment" >
+                      </span>
                       </div>
-
-                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                      <label>Enter Your Name*</label>
-                      <input type="text" name="username" placeholder="Your Name" required="" pwa2-uuid="EDITOR/input-375-F9B-2BB90-5A2" pwa-fake-editor="">
-                    </div>
-
-                    <div class="col-md-6 col-sm-6 col-xs-12 form-group">
-                      <label>Enter Your Email*</label>
-                      <input type="email" name="email" placeholder="Your Email" required="">
-                    </div>
-
                     <div class="
                         col-lg-12 col-md-12 col-sm-12 col-xs-12
                         form-group
@@ -196,6 +132,13 @@
                     </div>
                   </div>
                 </form>
+              </div>
+              <div class="comment-form" *ngIf="isLoggedInUser === false">
+                <div class="row">
+                  <div class="col">
+                    <p class="text-danger">You're not signed in, To leave a comment you need to <a routerLink="/auth/signin">Signin</a> or <a routerLink="/auth/signup">Signup</a>.</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

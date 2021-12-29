@@ -16,6 +16,7 @@ import { BlogsComponent } from './blogs/blogs.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 import { ContentfulService } from '../services/contentful.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { ContentfulService } from '../services/contentful.service';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: HomepageComponent },
       { path: 'about-us', component: AboutUsComponent },

@@ -5,6 +5,9 @@ import { blog } from 'src/app/structures/method.structure';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { DatabaseService } from 'src/app/services/database.service';
 import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts-and-notifications.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonFunction } from 'src/app/common';
+import { DataProvider } from 'src/app/providers/data.provider';
 
 @Component({
   selector: 'app-single-blog',
@@ -14,15 +17,48 @@ import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts
 export class SingleBlogComponent implements OnInit {
   blogID : any;
   blogData : blog;
+  commentForm : FormGroup;
+  validationMessages : any;
+  formErrors : any = {
+    name: '',
+    comment: ''
+  };
+  commentsList : any = [];
+  isLoggedInUser : any = false;
   constructor(
     private activeRoute : ActivatedRoute,
     private _contentful:ContentfulService,
     private databaseService: DatabaseService,
-    private alertify:AlertsAndNotificationsService) {
+    private alertify:AlertsAndNotificationsService, private fb : FormBuilder, private dataProvider : DataProvider) {
     this.activeRoute.queryParams.subscribe((qp) => {
       // console.log('Get Router Params:', this.activeRoute.snapshot.params.id);
       this.blogID = this.activeRoute.snapshot.params.id
     });
+    this.commentForm = this.fb.group({
+      name: [
+        null,
+        Validators.compose([
+          Validators.required,
+          Validators.maxLength(100),
+        ]),
+      ],
+      comment: [
+        null,
+        Validators.compose([Validators.required]),
+      ]
+    });
+    this.validationMessages = {
+      name: {
+        required: `Please Enter Name`,
+        maxLength: `Maximum 100 characters allowed.`
+      },
+      comment: {
+        required: `Please Enter Comment`
+      }
+    };
+    let userID = this.dataProvider.userID;
+    this.isLoggedInUser = this.dataProvider.loggedIn;
+    console.log("user id", userID, "log in", this.isLoggedInUser)
   }
   ngOnInit(): void {
     let data = this._contentful.getPost(this.blogID);
@@ -38,22 +74,53 @@ export class SingleBlogComponent implements OnInit {
         author:res.fields.authorName,
       };
     })
+    this.getComments();
+  }
+  getComments(){
     this.databaseService.getCommentById(this.blogID).then((res:any)=>{
-      console.log(res);
+      // console.log("res",res);
+      this.commentsList= []
       res.forEach((comment: any) => {
-        console.log(comment.data());
+        //console.log(comment.data());
+        this.commentsList.push(comment.data())
       })
     })
   }
-  addComment(){
-    this.databaseService.addCommentById(this.blogID,{
-      displayName:'John Doe',
-      comment:'This is a comment',
-      date:new Date(),
-      uid:'12345'
-    }).then((res:any)=>{
-      this.alertify.presentToast('Comment added successfully','info',4000)
-    });
-    
+  addComment(formdata : any){
+    this._generateErrors();
+    if(formdata.valid){
+      this.databaseService.addCommentById(this.blogID,{
+        displayName: formdata.value.name,
+        comment: formdata.value.comment,
+        date:new Date(),
+        uid:'12345'
+      }).then((res:any)=>{
+        this.alertify.presentToast('Comment added successfully','info',4000)
+        this.getComments();
+        this.resetForm();
+      });
+    }
+  }
+  // ERROR GENERATIONS
+  private _generateErrors() {
+    // Check validation and set errors
+    for (const field in this.formErrors) {
+      if (this.formErrors.hasOwnProperty(field)) {
+        // Set errors for fields not inside datesGroup
+        // Clear previous error message (if any)
+        this.formErrors[field] = '';
+        CommonFunction._setErrMsgs(this.commentForm.get(field), this.formErrors, field, this.validationMessages);
+      }
+    }
+  }
+  resetForm() {
+    this.commentForm.reset();
+    this.commentForm.markAsUntouched();
+    this.commentForm.markAsPristine();
+
+    this.formErrors = {
+      name: '',
+      comment: ''
+    };
   }
 }

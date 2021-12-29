@@ -29,7 +29,7 @@ export class AlertsAndNotificationsService {
   }
 
 
-  constructor(private snackbar: MatSnackBar,public dialog: MatDialog) { 
+  constructor(private snackbar: MatSnackBar,public dialog: MatDialog) {
     this.toastAudio.src = '/assets/audio/tones/toast.mp3';
     this.toastAudio.volume = 0.4;
     this.toastAudio.load();
