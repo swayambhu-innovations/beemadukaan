@@ -47,7 +47,7 @@
               </div>
 
               <!-- Blog Author Box -->
-              <div class="blog-author-box">
+              <div class="blog-author-box shadow">
                 <div class="author-inner">
                   <div class="thumb">
                     <img src="images/resource/author-4.png" alt="">
@@ -82,7 +82,7 @@
                 <div class="group-title">
                   <h4>Comments by User</h4>
                 </div>
-                <div class="comments-outer">
+                <div class="comments-outer shadow">
                   <div class="comment-box" *ngFor="let item of commentsList">
                     <div class="comment">
                       <div class="author-thumb">
@@ -101,7 +101,7 @@
               </div>
 
               <!-- Comment Form -->
-              <div class="comment-form" *ngIf="isLoggedInUser === true">
+              <div class="comment-form shadow"  *ngIf="isLoggedInUser === true">
                 <div class="group-title">
                   <h4>Leave a comment</h4>
                 </div>
@@ -133,7 +133,7 @@
                   </div>
                 </form>
               </div>
-              <div class="comment-form" *ngIf="isLoggedInUser === false">
+              <div class="comment-form shadow" *ngIf="isLoggedInUser === false">
                 <div class="row">
                   <div class="col">
                     <p class="text-danger">You're not signed in, To leave a comment you need to <a routerLink="/auth/signin">Signin</a> or <a routerLink="/auth/signup">Signup</a>.</p>
@@ -150,7 +150,7 @@
             <!-- Search -->
             <div class="sidebar-widget search-box">
               <form method="post" action="contact.html">
-                <div class="form-group">
+                <div class="form-group shadow">
                   <input type="search" name="search-field" value="" placeholder="Search here..." required="">
                   <button type="submit">
                     <span class="icon fa fa-search"></span>
@@ -160,8 +160,8 @@
             </div>
 
             <!-- Subscribe Widget -->
-            <div class="sidebar-widget subscribe-widget">
-              <div class="widget-content">
+            <div class="sidebar-widget subscribe-widget shadow">
+              <div class="widget-content ">
                 <h5>SUBSCRIBE FOR MORE WORDPRESS THEMES</h5>
                 <div class="subscribe-form">
                   <form method="post" action="contact.html">
@@ -177,7 +177,7 @@
             </div>
 
             <!-- Post Widget -->
-            <div class="sidebar-widget post-widget">
+            <div class="sidebar-widget post-widget shadow">
               <!-- Footer Column -->
               <div class="widget-content">
                 <!-- Sidebar Title -->
@@ -284,7 +284,7 @@
             </div>
 
             <!-- Help Widget -->
-            <div class="sidebar-widget help-widget">
+            <div class="sidebar-widget help-widget shadow">
               <div class="image">
                 <img src="images/resource/help.jpg" alt="">
                 <div class="overlay-box">
@@ -302,7 +302,7 @@
             </div>
 
             <!-- Tags Widget -->
-            <div class="sidebar-widget tags">
+            <div class="sidebar-widget tags shadow">
               <!-- Footer Column -->
               <div class="widget-content">
                 <!-- Sidebar Title -->
@@ -320,7 +320,7 @@
             </div>
 
             <!-- Social Widget -->
-            <div class="sidebar-widget social-widget">
+            <div class="sidebar-widget social-widget shadow">
               <!-- Footer Column -->
               <div class="widget-content">
                 <!-- Sidebar Title -->
