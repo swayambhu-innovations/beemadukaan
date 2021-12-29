@@ -8,6 +8,7 @@ import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonFunction } from 'src/app/common';
 import { DataProvider } from 'src/app/providers/data.provider';
+import { AuthencationService } from 'src/app/services/authencation.service';
 
 @Component({
   selector: 'app-single-blog',
@@ -25,11 +26,12 @@ export class SingleBlogComponent implements OnInit {
   };
   commentsList : any = [];
   isLoggedInUser : any = false;
+  userID : any;
   constructor(
     private activeRoute : ActivatedRoute,
     private _contentful:ContentfulService,
     private databaseService: DatabaseService,
-    private alertify:AlertsAndNotificationsService, private fb : FormBuilder, private dataProvider : DataProvider) {
+    private alertify:AlertsAndNotificationsService, private fb : FormBuilder, private dataProvider : DataProvider, private authService : AuthencationService) {
     this.activeRoute.queryParams.subscribe((qp) => {
       // console.log('Get Router Params:', this.activeRoute.snapshot.params.id);
       this.blogID = this.activeRoute.snapshot.params.id
@@ -56,9 +58,12 @@ export class SingleBlogComponent implements OnInit {
         required: `Please Enter Comment`
       }
     };
-    let userID = this.dataProvider.userID;
-    this.isLoggedInUser = this.dataProvider.loggedIn;
-    console.log("user id", userID, "log in", this.isLoggedInUser)
+
+
+    console.log("log", this.isLoggedInUser)
+    //let userID = this.dataProvider.userID;
+    //this.isLoggedInUser = this.dataProvider.loggedIn;
+    //console.log("user id", userID, "log in", this.isLoggedInUser)
   }
   ngOnInit(): void {
     let data = this._contentful.getPost(this.blogID);
@@ -75,6 +80,13 @@ export class SingleBlogComponent implements OnInit {
       };
     })
     this.getComments();
+    this.authService.checkAuth().subscribe(
+      (res) => {
+        //console.log("res",res)
+        this.isLoggedInUser = res.isLoggedIn;
+        this.userID = res.response.uid;
+      }
+    );
   }
   getComments(){
     this.databaseService.getCommentById(this.blogID).then((res:any)=>{
@@ -93,7 +105,7 @@ export class SingleBlogComponent implements OnInit {
         displayName: formdata.value.name,
         comment: formdata.value.comment,
         date:new Date(),
-        uid:'12345'
+        uid:this.userID
       }).then((res:any)=>{
         this.alertify.presentToast('Comment added successfully','info',4000)
         this.getComments();
@@ -101,7 +113,8 @@ export class SingleBlogComponent implements OnInit {
       });
     }
   }
-  // ERROR GENERATIONS
+
+  // ERROR GENERATIONS1
   private _generateErrors() {
     // Check validation and set errors
     for (const field in this.formErrors) {

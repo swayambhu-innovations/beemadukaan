@@ -14,7 +14,18 @@ export class AuthencationService {
   private loggedIn:boolean = false;
 
   constructor(private auth: Auth, private alertify:AlertsAndNotificationsService, private dataProvider : DataProvider, private userData:UserDataService,  private firestore: Firestore,) {
-    this.checkAuth();
+    //this.checkAuth();
+    if (this.auth) {
+      this.user = authState(this.auth);
+
+      this.userDisposable = authState(this.auth).pipe(
+        map(u => !!u)
+      ).subscribe(isLoggedIn => {
+        this.loggedIn = isLoggedIn;
+      });
+    } else {
+      this.loggedIn = false;
+    }
   }
   private  userDisposable: Subscription|undefined;
   public  user: Observable<User | null> = EMPTY;
@@ -43,19 +54,23 @@ export class AuthencationService {
     console.log(data);
   }
 
-  public checkAuth(){
+  public checkAuth(): Observable<any>{
+    let data : any;
     if (this.auth) {
       this.user = authState(this.auth);
+      data = authState(this.auth)
+      .pipe(
+        map(response => {
+          let a = {
+            response : response,
+            isLoggedIn : this.isLoggedIn
+          }
+          return a;
+        })
+      );
 
-      this.userDisposable = authState(this.auth).pipe(
-        map(u => !!u)
-      ).subscribe(isLoggedIn => {
-        this.loggedIn = isLoggedIn;
-        console.log("isLoggedIn", isLoggedIn)
-      });
-    } else {
-      this.loggedIn = false;
     }
+    return data;
   }
   public async loginEmailPassword(email: string, password: string){
     let data = await signInWithEmailAndPassword(this.auth, email, password).then((credentials:UserCredential)=>{
