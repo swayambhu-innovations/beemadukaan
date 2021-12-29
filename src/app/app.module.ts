@@ -25,6 +25,8 @@ import { AuthModule } from './auth/auth.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminModule } from './admin/admin.module';
 import { DataProvider } from './providers/data.provider';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 
@@ -33,6 +35,8 @@ import { DataProvider } from './providers/data.provider';
     AppComponent
   ],
   imports: [
+    MatSnackBarModule,
+    MatDialogModule,
     BrowserModule,
     AppRoutingModule,
     WebModule,

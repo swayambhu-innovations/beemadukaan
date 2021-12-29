@@ -32,3 +32,9 @@ export type ExtraLoginEmailInfo= {
   phoneNumber:string;
   photoURL:string;
 }
+export type PostComment={
+    displayName:string;
+    comment:string;
+    date:Date;
+    uid:string;
+}
