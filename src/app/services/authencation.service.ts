@@ -1,27 +1,38 @@
 import { Injectable, Optional } from '@angular/core';
-import { Firestore, collectionData, collection } from '@angular/fire/firestore';
+import { Firestore, collectionData, collection, getDoc, doc, DocumentReference, docData } from '@angular/fire/firestore';
 import { Auth, authState, signInAnonymously, signOut, User, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signInWithPhoneNumber, FacebookAuthProvider, createUserWithEmailAndPassword, UserCredential } from '@angular/fire/auth';
 import { EMPTY, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AlertsAndNotificationsService } from './uiService/alerts-and-notifications.service';
 import { DataProvider } from '../providers/data.provider';
 import { UserDataService } from './user-data.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthencationService {
   private loggedIn:boolean = false;
-
-  constructor(private auth: Auth, private alertify:AlertsAndNotificationsService, private dataProvider : DataProvider, private userData:UserDataService,  private firestore: Firestore,) {
+  userDoc:DocumentReference | undefined;
+  checkerUserDoc:DocumentReference | undefined;
+  private userServerSubscription:Subscription | undefined = undefined;
+  constructor(
+    private auth: Auth,
+    private alertify:AlertsAndNotificationsService,
+    private dataProvider : DataProvider,
+    private userData:UserDataService,
+    private firestore: Firestore,
+    private router:Router
+    ) {
     //this.checkAuth();
-    if (this.auth) {
+    if (auth) {
       this.user = authState(this.auth);
-
+      this.setDataObserver(this.user);
       this.userDisposable = authState(this.auth).pipe(
         map(u => !!u)
       ).subscribe(isLoggedIn => {
         this.loggedIn = isLoggedIn;
+        this.dataProvider.loggedIn = isLoggedIn;
       });
     } else {
       this.loggedIn = false;
@@ -42,10 +53,29 @@ export class AuthencationService {
   // Read functions end
   // Sign in functions start
   public async signInWithGoogle(){
-    let data = signInWithPopup(this.auth, new GoogleAuthProvider()).then((credentials:UserCredential)=>{
+    this.dataProvider.pageSetting.blur = true;
+    this.dataProvider.pageSetting.lastRedirect = '';
+    let data = signInWithPopup(this.auth, new GoogleAuthProvider()).then(async (credentials:UserCredential)=>{
       console.log(credentials);
+      if (!(await getDoc(doc(this.firestore,'users/'+credentials.user.uid))).exists()){
+        if (credentials.user.phoneNumber == null){
+          await this.userData.setGoogleUserData(credentials.user,{phoneNumber:''});
+        } else {
+          await this.userData.setGoogleUserData(credentials.user,{phoneNumber:credentials.user.phoneNumber});
+        }
+      } else {
+        this.dataProvider.pageSetting.blur = false;
+        this.alertify.presentToast('Logging you in.','info',5000);
+        this.router.navigate(['']);
+      }
+    }).catch((error)=>{
+      this.dataProvider.pageSetting.blur = false;
+      if (error.code === 'auth/popup-closed-by-user'){
+        this.alertify.presentToast('Login cancelled.','error',5000);
+      } else {
+        this.alertify.presentToast(error.message,'error',5000);
+      }
     });
-    console.log(data);
   }
 
   public async loginAnonymously() {
@@ -69,7 +99,6 @@ export class AuthencationService {
           return a;
         })
       );
-
     }
     return data;
   }
@@ -107,6 +136,32 @@ export class AuthencationService {
     );
   }
   // Sign out functions end
-
+  private setDataObserver(user: Observable<User | null>) {
+    // console.log('Starting data observer')
+    if (user) {
+      // console.log('Setting data observer')
+      user.subscribe(u => {
+        if (u) {
+          this.dataProvider.loggedIn = true;
+          this.dataProvider.gettingUserData= true;
+          // console.log('User is logged in')
+          this.userDoc = doc(this.firestore,'users/'+u.uid);
+          // console.log("User data from auth",u);
+          if (this.userServerSubscription!=undefined){
+            this.userServerSubscription.unsubscribe();
+          }
+          this.userServerSubscription = docData(this.userDoc).subscribe((data:any) => {
+            // console.log("Recieved new data",data)
+            this.dataProvider.userData = data;
+            this.dataProvider.gettingUserData= false;
+          })
+        }
+      });
+    } else {
+      if (this.userServerSubscription!=undefined){
+        this.userServerSubscription.unsubscribe();
+      }
+    }
+  }
 
 }

@@ -13,8 +13,8 @@ export class DataProvider{
         messageType:'Error'
     };
     public userData:UserData | undefined;
-    public loggedIn:boolean = false;
-    public gettingUserData:boolean = false;
+    public loggedIn:boolean | undefined = undefined;
+    public gettingUserData:boolean = true;
     public userID:string | undefined;
     public verifyEmail:boolean | undefined;
     public reloadPage:boolean = false;

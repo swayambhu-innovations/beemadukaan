@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { CommonFunction } from 'src/app/common';
 import { AuthencationService } from 'src/app/services/authencation.service';
 
+
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -16,7 +17,7 @@ export class SigninComponent implements OnInit {
     email: '',
     password: '',
   };
-  constructor(private fb : FormBuilder, private authService : AuthencationService, private router : Router) {
+  constructor(private fb : FormBuilder, public authService: AuthencationService, private router : Router) {
     this.signinForm = this.fb.group({
       email : [
         null,
