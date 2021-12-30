@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Observable } from 'rxjs';
 import { DynamicScriptLoaderService } from './web/includes/services/dynamic-script-loader.service';
 import { DatabaseService } from './services/database.service';
+import { AuthencationService } from './services/authencation.service';
 
 declare var $:any;
 declare var jQuery :any;
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   title = 'Beema Dukaan';
   // items : any = [];
   items: Observable<any[]>;
-  constructor(private dynamicScriptLoader: DynamicScriptLoaderService, private elRef: ElementRef, private renderer: Renderer2, public dataService:DatabaseService ) {
+  constructor(private dynamicScriptLoader: DynamicScriptLoaderService, private elRef: ElementRef, private renderer: Renderer2, public dataService:DatabaseService,public authService:AuthencationService) {
     //const collections = collection(this.fs, 'items');
     //this.items = this.fs.collection('items').valueChanges();
     //this.item$ = collectionData(collections);

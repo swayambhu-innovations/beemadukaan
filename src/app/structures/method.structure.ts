@@ -38,3 +38,6 @@ export type PostComment={
     date:Date;
     uid:string;
 }
+export type ExtraLoginGoogleInfo={
+    phoneNumber:string;
+}

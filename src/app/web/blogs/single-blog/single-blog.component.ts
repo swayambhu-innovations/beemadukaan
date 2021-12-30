@@ -4,10 +4,10 @@ import { ContentfulService } from 'src/app/services/contentful.service';
 import { blog } from 'src/app/structures/method.structure';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { DatabaseService } from 'src/app/services/database.service';
-import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts-and-notifications.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CommonFunction } from 'src/app/common';
 import { DataProvider } from 'src/app/providers/data.provider';
+import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts-and-notifications.service';
 import { AuthencationService } from 'src/app/services/authencation.service';
 
 @Component({

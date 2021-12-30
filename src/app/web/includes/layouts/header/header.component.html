@@ -62,13 +62,15 @@
                       <a routerLink="/blogs">Blog</a>
                     </li>
                     <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
-                    <li routerLinkActive="current" routerLink="../auth/signin">
-                      <a routerLink="../auth/login">Login</a>
+                    <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="!dataProvider.loggedIn && dataProvider.loggedIn!=undefined">
+                      <a routerLink="../auth/signin">Login</a>
+                    </li>
+                    <li (click)="authService.logout()" *ngIf="dataProvider.loggedIn && dataProvider.loggedIn!=undefined">
+                      <a (click)="authService.logout()">Logout</a>
                     </li>
                   </ul>
                 </div>
               </nav>
-
               <!-- Main Menu End-->
               <div class="outer-box clearfix">
                 <!-- Phone Btn -->
@@ -147,6 +149,12 @@
                     <a routerLink="/blogs">Blog</a>
                   </li>
                   <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+                  <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="!dataProvider.loggedIn && dataProvider.loggedIn!=undefined">
+                    <a routerLink="../auth/signin">Login</a>
+                  </li>
+                  <li (click)="authService.logout()" *ngIf="dataProvider.loggedIn && dataProvider.loggedIn!=undefined">
+                    <a (click)="authService.logout()">Logout</a>
+                  </li>
                 </ul>
               </div>
             </nav>

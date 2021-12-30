@@ -29,7 +29,6 @@ export class DatabaseService {
     addDoc(this.contactDoc,data).then((doc)=>{
       console.log(doc);
       console.log(doc.id)
-
     })
   }
   async getContactRequest(){

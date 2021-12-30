@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Data, Router } from '@angular/router';
+import { DataProvider } from 'src/app/providers/data.provider';
+import { AuthencationService } from 'src/app/services/authencation.service';
 
 declare var $:any;
 @Component({
@@ -8,7 +11,7 @@ declare var $:any;
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dataProvider: DataProvider, public router: Router,public authService: AuthencationService) { }
 
   ngOnInit(): void {
 
