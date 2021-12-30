@@ -22,7 +22,7 @@
   <!-- End Page Title -->
 
   <!-- Sidebar Page Container -->
-  <div class="sidebar-page-container">
+  <div class="sidebar-page-container" style="background: #e1e1e1;">
     <div class="auto-container">
       <div class="row clearfix">
         <!-- Content Side -->
@@ -46,48 +46,14 @@
                 </main>
               </div>
 
-              <!-- Blog Author Box -->
-              <div class="blog-author-box shadow">
-                <div class="author-inner">
-                  <div class="thumb">
-                    <img src="images/resource/author-4.png" alt="">
-                  </div>
-                  <h4 class="name">Admin - UI/UX Designer</h4>
-                  <div class="text">
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. lorem Ipsum has been the
-                    industry’s standard dummy text ever since the when our
-                    idea
-                  </div>
-                  <ul class="social-icon clearfix">
-                    <li>
-                      <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-google"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-twitter"></i></a>
-                    </li>
-                    <li>
-                      <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- End Blog Author Box -->
-
               <!-- Comments Area -->
               <div class="comments-area">
                 <div class="group-title">
                   <h4>Comments by User</h4>
                 </div>
-                <div class="comments-outer shadow">
+                <div class="comments-outer shadow bg-white">
                   <div class="comment-box" *ngFor="let item of commentsList">
-                    <div class="comment">
-                      <div class="author-thumb">
-                        <img src="images/resource/author-5.jpg" alt="">
-                      </div>
+                    <div class="comment p-3">
                       <div class="comment-info clearfix">
                         <strong>{{ item?.displayName }}</strong>
                       </div>

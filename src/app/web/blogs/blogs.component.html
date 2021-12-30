@@ -21,7 +21,7 @@
 </section>
 <!-- End Page Title -->
 <!-- Blog Page Section -->
-<section class="blog-page-section">
+<section class="blog-page-section bg-gray">
   <div class="auto-container">
     <div class="inner-container">
       <div class="section-icons-outer parallax-scene-2">
@@ -45,9 +45,9 @@
       <div class="row clearfix">
         <!-- News Block -->
         <div class="news-block col-lg-4 col-md-6 col-sm-12" *ngFor="let blog of blogs; index as i;">
-          <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+          <div class="inner-box wow fadeInLeft shadow" data-wow-delay="0ms" data-wow-duration="1500ms">
             <div class="image">
-              <a [routerLink]="['/blogs', blog.id]"><img src="{{ blog.image }}" alt="" /></a>
+              <a [routerLink]="['/blogs', blog.id]"><img src="{{ blog.image }}" alt="{{ blog.name }}" /></a>
             </div>
             <div class="lower-content">
               <ul class="post-meta">

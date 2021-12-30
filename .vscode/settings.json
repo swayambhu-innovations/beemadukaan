@@ -3,6 +3,7 @@
         "alertify",
         "Firestore",
         "formdata",
+        "shortify",
         "Signin"
     ]
 }

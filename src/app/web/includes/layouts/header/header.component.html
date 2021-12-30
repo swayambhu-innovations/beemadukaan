@@ -62,8 +62,11 @@
                       <a routerLink="/blogs">Blog</a>
                     </li>
                     <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
-                    <li routerLinkActive="current" routerLink="../auth/signin">
-                      <a routerLink="../auth/login">Login</a>
+                    <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
+                      <a  >Login</a>
+                    </li>
+                    <li *ngIf="isLoggedInUser === true">
+                      <a (click)="authService.logout()"  >Logout</a>
                     </li>
                   </ul>
                 </div>
@@ -147,6 +150,12 @@
                     <a routerLink="/blogs">Blog</a>
                   </li>
                   <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+                  <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
+                    <a  >Login</a>
+                  </li>
+                  <li *ngIf="isLoggedInUser === true">
+                    <a (click)="authService.logout()"  >Logout</a>
+                  </li>
                 </ul>
               </div>
             </nav>
@@ -226,6 +235,12 @@
                   <a routerLink="/blogs">Blog</a>
                 </li>
                 <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+                <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
+                  <a  >Login</a>
+                </li>
+                <li *ngIf="isLoggedInUser === true">
+                  <a (click)="authService.logout()"  >Logout</a>
+                </li>
               </ul>
             </div>
           </div>

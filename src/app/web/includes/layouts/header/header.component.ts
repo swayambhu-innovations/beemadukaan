@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthencationService } from 'src/app/services/authencation.service';
 
 declare var $:any;
 @Component({
@@ -7,8 +8,10 @@ declare var $:any;
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  isLoggedInUser : boolean = false;
+  constructor(public authService : AuthencationService) {
+    this.checkAuthentication();
+   }
 
   ngOnInit(): void {
 
@@ -96,4 +99,12 @@ export class HeaderComponent implements OnInit {
   }
   }
 
+  checkAuthentication(){
+    this.authService.checkAuth().subscribe(
+      (res) => {
+        //console.log("res",res)
+        this.isLoggedInUser = res.isLoggedIn;
+      }
+    );
+  }
 }

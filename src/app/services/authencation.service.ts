@@ -27,11 +27,12 @@ export class AuthencationService {
       this.loggedIn = false;
     }
   }
-  private  userDisposable: Subscription|undefined;
+  private userDisposable: Subscription|undefined;
   public  user: Observable<User | null> = EMPTY;
 
   // Read functions start
   public get isLoggedIn(): boolean {
+    console.log(this.loggedIn)
     return this.loggedIn;
   }
 
@@ -99,7 +100,11 @@ export class AuthencationService {
   }
   // Sign out functions start
   public async logout() {
-    return await signOut(this.auth);
+    return await signOut(this.auth).then(
+      (res) => {
+        this.alertify.presentToast('Logged Out !','info',4000)
+      }
+    );
   }
   // Sign out functions end
 

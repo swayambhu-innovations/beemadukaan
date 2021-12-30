@@ -354,7 +354,7 @@
                     <!-- Accordian Box -->
                     <ul class="accordion-box mt-3">
                       <!--Block-->
-                      <li class="accordion block active-block">
+                      <li class="accordion block shadow active-block">
                         <div class="acc-btn active">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -380,7 +380,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block ">
+                      <li class="accordion block shadow">
                         <div class="acc-btn ">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -411,7 +411,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block">
+                      <li class="accordion block shadow">
                         <div class="acc-btn">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -550,7 +550,7 @@
         <!-- End Insurance Section -->
 
         <!-- Insurance Section Two -->
-        <section class="insurance-section-two">
+        <section class="insurance-section-two bg-white">
           <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
@@ -686,7 +686,7 @@
         <!-- End Insurance Section Two -->
 
         <!-- Faq's Section -->
-        <section class="faq-section">
+        <section class="faq-section bg-gray">
           <div class="auto-container">
             <!-- Sec Title -->
             <div class="sec-title centered">
@@ -702,7 +702,7 @@
                     <!-- Accordian Box -->
                     <ul class="accordion-box">
                       <!--Block-->
-                      <li class="accordion block active-block">
+                      <li class="accordion block shadow active-block">
                         <div class="acc-btn active">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -720,7 +720,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block ">
+                      <li class="accordion block shadow">
                         <div class="acc-btn ">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -738,7 +738,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block">
+                      <li class="accordion block shadow">
                         <div class="acc-btn">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -756,7 +756,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block">
+                      <li class="accordion block shadow">
                         <div class="acc-btn">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -782,7 +782,7 @@
                     <!-- Accordian Box -->
                     <ul class="accordion-box">
                       <!--Block-->
-                      <li class="accordion block">
+                      <li class="accordion block shadow">
                         <div class="acc-btn">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -800,7 +800,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block active-block">
+                      <li class="accordion block shadow active-block">
                         <div class="acc-btn active">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -818,7 +818,7 @@
                       </li>
 
                       <!--Block-->
-                      <li class="accordion block">
+                      <li class="accordion block shadow">
                         <div class="acc-btn">
                           <div class="icon-outer">
                             <span class="icon icon-plus fa fa-plus"></span>
@@ -875,7 +875,7 @@
                 <!-- Price Block -->
                 <div class="price-block col-lg-4 col-md-6 col-sm-12">
                   <div
-                    class="inner-box wow fadeInLeft"
+                    class="inner-box wow fadeInLeft shadow-lg"
                     data-wow-delay="0ms"
                     data-wow-duration="1500ms"
                   >
@@ -1051,7 +1051,7 @@
                 <!-- Price Block -->
                 <div class="price-block col-lg-4 col-md-6 col-sm-12">
                   <div
-                    class="inner-box wow fadeInUp"
+                    class="inner-box wow fadeInUp shadow-lg"
                     data-wow-delay="0ms"
                     data-wow-duration="1500ms"
                   >
@@ -1227,7 +1227,7 @@
                 <!-- Price Block -->
                 <div class="price-block col-lg-4 col-md-6 col-sm-12">
                   <div
-                    class="inner-box wow fadeInRight"
+                    class="inner-box wow fadeInRight shadow-lg"
                     data-wow-delay="0ms"
                     data-wow-duration="1500ms"
                   >
@@ -1419,85 +1419,29 @@
             <div class="inner-container">
                 <div class="row clearfix">
                   <!-- News Block -->
-                  <div class="news-block col-lg-4 col-md-6 col-sm-12">
+                  <div class="news-block col-lg-4 col-md-6 col-sm-12 " *ngFor="let blog of blogs; index as i;">
                     <div
-                      class="inner-box wow fadeInLeft"
+                      class="inner-box wow fadeInLeft shadow"
                       data-wow-delay="0ms"
                       data-wow-duration="1500ms"
                     >
                       <div class="image">
-                        <a href="news-detail.html"
-                          ><img src="assets/images/resource/news-1.jpg" alt=""
+                        <a [routerLink]="['/blogs', blog.id]"
+                          ><img src="{{ blog.image }}" alt="{{ blog.name }}"
                         /></a>
                       </div>
                       <div class="lower-content">
                         <ul class="post-meta">
                           <li>
-                            <span class="icon flaticon-user"></span>22 OCT, 2021
+                            <span class="icon flaticon-user"></span>{{ blog.date }}
                           </li>
                         </ul>
                         <h4>
-                          <a href="news-detail.html"
-                            >How to apply on Beema Dukaan for two wheeler insurance ?</a
+                          <a [routerLink]="['/blogs', blog.id]"
+                            >{{ blog.name }}</a
                           >
                         </h4>
-                        <a href="news-detail.html" class="read-more">Read More</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- News Block -->
-                  <div class="news-block col-lg-4 col-md-6 col-sm-12">
-                    <div
-                      class="inner-box wow fadeInUp"
-                      data-wow-delay="0ms"
-                      data-wow-duration="1500ms"
-                    >
-                      <div class="image">
-                        <a href="news-detail.html"
-                          ><img src="assets/images/resource/news-2.jpg" alt=""
-                        /></a>
-                      </div>
-                      <div class="lower-content">
-                        <ul class="post-meta">
-                          <li>
-                            <span class="icon flaticon-user"></span>22 OCT, 2021
-                          </li>
-                        </ul>
-                        <h4>
-                          <a href="news-detail.html"
-                            >How to apply on Beema Dukaan for two wheeler insurance ?</a
-                          >
-                        </h4>
-                        <a href="news-detail.html" class="read-more">Read More</a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- News Block -->
-                  <div class="news-block col-lg-4 col-md-6 col-sm-12">
-                    <div
-                      class="inner-box wow fadeInRight"
-                      data-wow-delay="0ms"
-                      data-wow-duration="1500ms"
-                    >
-                      <div class="image">
-                        <a href="news-detail.html"
-                          ><img src="assets/images/resource/news-3.jpg" alt=""
-                        /></a>
-                      </div>
-                      <div class="lower-content">
-                        <ul class="post-meta">
-                          <li>
-                            <span class="icon flaticon-user"></span>22 OCT, 2021
-                          </li>
-                        </ul>
-                        <h4>
-                          <a href="news-detail.html"
-                            >How to apply for two wheeler insurance ?</a
-                          >
-                        </h4>
-                        <a href="news-detail.html" class="read-more">Read More</a>
+                        <a [routerLink]="['/blogs', blog.id]" class="read-more">Read More</a>
                       </div>
                     </div>
                   </div>

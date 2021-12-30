@@ -3,6 +3,7 @@ import { Firestore, addDoc, collectionData,DocumentReference, CollectionReferenc
 import { getDocs, query } from 'firebase/firestore';
 import { PostComment } from '../structures/method.structure';
 import { ContactRequest } from '../structures/user.structure';
+import { AlertsAndNotificationsService } from './uiService/alerts-and-notifications.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class DatabaseService {
   usersDoc:CollectionReference;
   serverStatus : DocumentReference;
   postCommentRef:CollectionReference;
-  constructor(private fs: Firestore) {
+  constructor(private fs: Firestore, private alertify : AlertsAndNotificationsService) {
     this.contactDoc = collection(this.fs,'contactRequests');
     this.usersDoc = collection(this.fs,'users');
     this.serverStatus = doc(this.fs,'admin/serverStatus');
@@ -27,9 +28,9 @@ export class DatabaseService {
     }
     console.log('Adding data',data)
     addDoc(this.contactDoc,data).then((doc)=>{
-      console.log(doc);
-      console.log(doc.id)
-
+      //console.log(doc);
+      //console.log(doc.id)
+      this.alertify.presentToast('Thank you for requesting, We will contact you Soon !','info',4000)
     })
   }
   async getContactRequest(){
