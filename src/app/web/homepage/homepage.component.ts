@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Entry } from 'contentful';
+import { ContentfulService } from 'src/app/services/contentful.service';
+import { post } from 'src/app/structures/method.structure';
 
 declare var $:any;
 declare var jQuery :any;
@@ -8,10 +11,11 @@ declare var jquery : any;
   templateUrl: './homepage.component.html'
 })
 export class HomepageComponent implements OnInit {
-
-  constructor() { }
+  blogs : post[] = []
+  constructor(private _contentful:ContentfulService) { }
   data : any;
   isActive : boolean = false;
+  private products: Entry<any>[] = [];
   ngOnInit(): void {
     $.getScript('assets/js/script.js');
 
@@ -44,6 +48,7 @@ export class HomepageComponent implements OnInit {
         description : 'It is beneficial to buy a car policy online in India, as there are various policies from which to choose. You can make more informed decisions. When you buy any car policy online, research thoroughly and then decide. Buying online also helps you save time and money. You can also get more benefits.'
       }
     ]
+    this.getPosts()
   }
     //Accordion Box
   toggleAccordian(event : any, index : any) {
@@ -60,5 +65,28 @@ export class HomepageComponent implements OnInit {
           }
         });
       }
+  }
+  getPosts(){
+    this._contentful.getPosts()
+    .then(products => {
+      console.log(products);
+      this.products = products;
+      products.forEach(product => {
+        let postDate = (new Date(product.fields.postDate)).toLocaleDateString();
+        this.blogs.push({
+          id:product.sys.id,
+          name:product.fields.title,
+          date:postDate,
+          image:product.fields.featuredMedia.fields.file.url,
+          description:this.shortifyText(product.fields.excerpt),
+        });
+      })
+    });
+  }
+  shortifyText(text:string){
+    if(text.length > 100){
+      return text.substring(0,100)+'...';
+    }
+    return text;
   }
 }
