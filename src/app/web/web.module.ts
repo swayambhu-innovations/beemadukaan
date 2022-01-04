@@ -17,6 +17,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 import { ContentfulService } from '../services/contentful.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DownloadsComponent } from './downloads/downloads.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BlogsComponent,
     FeedbackComponent,
     SingleBlogComponent,
+    DownloadsComponent,
   ],
   providers:[
     ContentfulService
@@ -59,7 +61,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
       { path: 'contact-us', component: ContactUsComponent },
       { path: 'blogs', component: BlogsComponent },
       { path: 'blogs/:id', component: SingleBlogComponent },
-      { path: 'feedbacks', component: FeedbackComponent }
+      { path: 'feedbacks', component: FeedbackComponent },
+      { path: 'downloads', component: DownloadsComponent }
     ])
   ],
 })
