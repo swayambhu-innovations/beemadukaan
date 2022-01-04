@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { CustomerRequestsComponent } from './customer-requests/customer-requests.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
+import { UploadDataComponent } from './upload-data/upload-data.component';
 
 
 
@@ -17,7 +18,8 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
     SidebarComponent,
     CustomerRequestsComponent,
     UsersListComponent,
-    PaymentDetailsComponent
+    PaymentDetailsComponent,
+    UploadDataComponent
   ],
   imports: [
     CommonModule,
@@ -25,7 +27,8 @@ import { PaymentDetailsComponent } from './payment-details/payment-details.compo
       { path: 'admin/dashboard', component : DashboardComponent},
       { path: 'admin/customer-requests', component : CustomerRequestsComponent},
       { path: 'admin/users', component : UsersListComponent},
-      { path: 'admin/payment-details', component : PaymentDetailsComponent}
+      { path: 'admin/payment-details', component : PaymentDetailsComponent},
+      { path: 'admin/upload-data',component: UploadDataComponent}
     ])
   ]
 })
