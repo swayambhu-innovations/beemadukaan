@@ -1,11 +1,11 @@
-
 <app-header></app-header>
 
 <div class="container-fluid">
   <div class="row" style="min-height: 100vh;">
     <app-sidebar id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white shadow sidebar collapse"></app-sidebar>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <div
+        class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Add Downloads</h1>
       </div>
       <div class="row">
@@ -13,22 +13,29 @@
           <div class="card shadow">
             <div class="card-body">
               <h5 class="card-title">Add downloads for users</h5>
-              <div>
-                <input class="form-control form-control-lg" id="formFileLg" type="file">
-              </div>
-              <div>
-                <button type="button" class="btn btn-primary mt-3">Submit</button>
-              </div>
+              <form [formGroup]="uploadForm" (ngSubmit)="uploadFile(fileEvent)">
+                <div>
+                  <input class="form-control" type="text" required placeholder="Title" formControlName="title">
+                </div>
+                <div>
+                  <input class="form-control form-control-lg" required formControlName="file" (change)="fileEvent=$event" id="formFileLg"
+                    type="file" max="1" accept=".pdf">
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-primary mt-3" [disabled]="!uploadForm.valid">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-3 ">
-          <div class="card shadow">
+          <div class="card shadow" *ngFor="let item of files">
             <div class="card-body">
-              <h5 class="card-title">Name goes here</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Published on : 04-01-2022</h6>
+              <h5 class="card-title">{{item.name}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Published on : {{item.date}}</h6>
               <p class="card-text"></p>
-              <a routerLink="/admin/dashboard" class="card-link">Delete</a>
+              <a class="card-link" [href]="item.file" download>Download</a>
+              <a (click)="deleteItem(item.id,item.path)" class="card-link">Delete</a>
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatabaseService } from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-downloads',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DownloadsComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private databaseService : DatabaseService) { }
+  downloads: any = [];
   ngOnInit(): void {
+    this.databaseService.getDownloadableFile().then((data)=>{
+      data.forEach(element => {
+        var filteredData = element.data()
+        filteredData.id = element.id
+        this.downloads.push(filteredData)
+      })
+    })
   }
 
 }

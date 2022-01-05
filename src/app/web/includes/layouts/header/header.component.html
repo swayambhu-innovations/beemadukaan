@@ -1,230 +1,50 @@
-    <!-- Main Header-->
-    <header class="main-header header-style-two shadow-lg p-3">
-      <!-- Header Upper -->
-      <div class="header-upper">
-        <div class="auto-container">
-          <div class="inner-container clearfix">
-            <div class="logo-box">
-              <div class="logo">
-                <a routerLink="/"
-                  ><img src="assets/images/logo-main.jpg" alt="" title="Beema Dukaan" class="logo-img"
-                /></a>
-              </div>
-            </div>
-
-            <div class="nav-outer clearfix">
-              <!-- Mobile Navigation Toggler -->
-              <div class="mobile-nav-toggler">
-                <span class="icon flaticon-menu-2"></span>
-              </div>
-              <!-- Main Menu -->
-              <nav class="main-menu navbar-expand-xl TEST">
-                <div class="navbar-header">
-                  <!-- Toggle Button -->
-                  <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-toggle="collapse"
-                    data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-                  >
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                </div>
-
-                <div
-                  class="navbar-collapse collapse clearfix"
-                  id="navbarSupportedContent"
-                >
-                  <ul class="navigation clearfix">
-                    <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}" >
-                      <a routerLink="/">Home</a>
-                    </li>
-                    <li routerLinkActive="current" routerLink="/about-us">
-                      <a routerLink="/about-us">About Us</a>
-                    </li>
-                    <li class="dropdown" routerLink="/services" routerLinkActive="current" [routerLinkActiveOptions]="{ exact: false }">
-                      <a>Services</a>
-                      <ul>
-                        <li routerLink="/services/car-insurance" routerLinkActive="current"><a routerLink="/services/car-insurance" >Car Insurance</a></li>
-                        <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
-                        <li routerLink="/services/health-insurance" routerLinkActive="current"><a routerLink="/services/health-insurance">Health Insurance</a></li>
-                      </ul>
-                    </li>
-                    <li routerLinkActive="current" routerLink="/renew-insurance">
-                      <a routerLink="/renew-insurance">Renew Policy</a>
-                    </li>
-                    <li routerLinkActive="current" routerLink="/blogs">
-                      <a routerLink="/blogs">Blog</a>
-                    </li>
-                    <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
-                    <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
-                      <a  >Login</a>
-                    </li>
-                    <li *ngIf="isLoggedInUser === true">
-                      <a (click)="authService.logout()"  >Logout</a>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
-              <!-- Main Menu End-->
-              <div class="outer-box clearfix">
-                <!-- Phone Btn -->
-                <div class="phone-box">
-                  <div class="box-inner">
-                    <a class="phone" href="tel:+1555-89-7965"
-                      >+1555 89 7965
-                      <span class="icon flaticon-call-2"></span
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+<!-- Main Header-->
+<header class="main-header header-style-two shadow-lg p-3">
+  <!-- Header Upper -->
+  <div class="header-upper">
+    <div class="auto-container">
+      <div class="inner-container clearfix">
+        <div class="logo-box">
+          <div class="logo">
+            <a routerLink="/"><img src="assets/images/logo-main.jpg" alt="" title="Beema Dukaan" class="logo-img" /></a>
           </div>
         </div>
-      </div>
-      <!--End Header Upper-->
 
-      <!-- Sticky Header  -->
-      <div class="sticky-header shadow-lg py-2 px-3">
-        <div class="auto-container clearfix">
-          <!--Logo-->
-          <div class="logo pull-left">
-            <a href="index.html" title=""
-              ><img src="assets/images/logo-main.jpg" alt="" title="" class="logo-img-sticky"
-            /></a>
+        <div class="nav-outer clearfix">
+          <!-- Mobile Navigation Toggler -->
+          <div class="mobile-nav-toggler">
+            <span class="icon flaticon-menu-2"></span>
           </div>
-          <!--Right Col-->
-          <div class="pull-right">
-            <!-- Mobile Navigation Toggler -->
-            <div class="mobile-nav-toggler">
-              <span class="icon flaticon-menu-2"></span>
-            </div>
-            <!-- Main Menu -->
-            <nav class="main-menu navbar-expand-md">
-              <div class="navbar-header">
-                <!-- Toggle Button -->
-                <button
-                  class="navbar-toggler"
-                  type="button"
-                  data-toggle="collapse"
-                  data-target="#navbarSupportedContent"
-                  aria-controls="navbarSupportedContent"
-                  aria-expanded="false"
-                  aria-label="Toggle navigation"
-                >
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </button>
-              </div>
-
-              <div
-                class="navbar-collapse collapse clearfix"
-                id="navbarSupportedContent"
-              >
-                <ul class="navigation clearfix">
-                  <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}" >
-                    <a routerLink="/">Home</a>
-                  </li>
-                  <li routerLinkActive="current" routerLink="/about-us">
-                    <a routerLink="/about-us">About Us</a>
-                  </li>
-                  <li class="dropdown" routerLink="/services" routerLinkActive="current" [routerLinkActiveOptions]="{ exact: false }">
-                    <a>Services</a>
-                    <ul>
-                      <li routerLink="/services/car-insurance" routerLinkActive="current"><a routerLink="/services/car-insurance" >Car Insurance</a></li>
-                      <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
-                      <li routerLink="/services/health-insurance" routerLinkActive="current"><a routerLink="/services/health-insurance">Health Insurance</a></li>
-                    </ul>
-                  </li>
-                  <li routerLinkActive="current" routerLink="/renew-insurance">
-                    <a routerLink="/renew-insurance">Renew Policy</a>
-                  </li>
-                  <li routerLinkActive="current" routerLink="/blogs">
-                    <a routerLink="/blogs">Blog</a>
-                  </li>
-                  <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
-                  <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
-                    <a  >Login</a>
-                  </li>
-                  <li *ngIf="isLoggedInUser === true">
-                    <a (click)="authService.logout()"  >Logout</a>
-                  </li>
-                </ul>
-              </div>
-            </nav>
-            <!-- Main Menu End-->
-
-            <!-- Main Menu End-->
-            <div class="outer-box clearfix">
-              <!-- Phone Btn -->
-              <div class="phone-box">
-                <div class="box-inner">
-                  <a class="phone" href="tel:+1555-89-7965"
-                    >+1555 89 7965 <span class="icon flaticon-call-2"></span
-                  ></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- End Sticky Menu -->
-
-      <!-- Mobile Menu  -->
-      <div class="mobile-menu">
-        <div class="menu-backdrop"></div>
-        <div class="close-btn">
-          <span class="icon flaticon-multiply"></span>
-        </div>
-
-        <nav class="menu-box">
-          <div class="nav-logo">
-            <a routerLink="/"
-              ><img src="assets/images/logo-main.jpg" alt="" title=""
-            /></a>
-          </div>
-          <div class="menu-outer">
-            <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+          <!-- Main Menu -->
+          <nav class="main-menu navbar-expand-xl TEST">
             <div class="navbar-header">
               <!-- Toggle Button -->
-              <button
-                class="navbar-toggler"
-                type="button"
-                data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation"
-              >
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
             </div>
 
-            <div
-              class="navbar-collapse collapse clearfix"
-              id="navbarSupportedContent"
-            >
+            <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
               <ul class="navigation clearfix">
-                <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}" >
+                <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}">
                   <a routerLink="/">Home</a>
                 </li>
                 <li routerLinkActive="current" routerLink="/about-us">
                   <a routerLink="/about-us">About Us</a>
                 </li>
-                <li class="dropdown" routerLink="/services" routerLinkActive="current" [routerLinkActiveOptions]="{ exact: false }">
+                <li class="dropdown" routerLink="/services" routerLinkActive="current"
+                  [routerLinkActiveOptions]="{ exact: false }">
                   <a>Services</a>
                   <ul>
-                    <li routerLink="/services/car-insurance" routerLinkActive="current"><a routerLink="/services/car-insurance" >Car Insurance</a></li>
-                    <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
-                    <li routerLink="/services/health-insurance" routerLinkActive="current"><a routerLink="/services/health-insurance">Health Insurance</a></li>
+                    <li routerLink="/services/car-insurance" routerLinkActive="current"><a
+                        routerLink="/services/car-insurance">Car Insurance</a></li>
+                    <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a
+                        routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
+                    <li routerLink="/services/health-insurance" routerLinkActive="current"><a
+                        routerLink="/services/health-insurance">Health Insurance</a></li>
                   </ul>
                 </li>
                 <li routerLinkActive="current" routerLink="/renew-insurance">
@@ -233,18 +53,190 @@
                 <li routerLinkActive="current" routerLink="/blogs">
                   <a routerLink="/blogs">Blog</a>
                 </li>
-                <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+                <li routerLinkActive="current" routerLink="/contact-us">
+                  <a routerLink="/contact-us">Contact us</a>
+                </li>
+                <li routerLinkActive="current" routerLink="/downloads">
+                  <a routerLink="/downloads">Downloads</a>
+                </li>
                 <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
-                  <a  >Login</a>
+                  <a>Login</a>
                 </li>
                 <li *ngIf="isLoggedInUser === true">
-                  <a (click)="authService.logout()"  >Logout</a>
+                  <a (click)="authService.logout()">Logout</a>
+                </li>
+                <li *ngIf="isLoggedInUser && dataProvider.userData?.access?.access==='Admin' && !dataProvider.gettingUserData" routerLink="../../admin/Dashboard">
+                  <a routerLink="admin/dashboard" routerLinkActive="current">Admin Panel</a>
                 </li>
               </ul>
             </div>
+          </nav>
+          <!-- Main Menu End-->
+          <div class="outer-box clearfix">
+            <!-- Phone Btn -->
+            <div class="phone-box">
+              <div class="box-inner">
+                <a class="phone" href="tel:+1555-89-7965">+1555 89 7965
+                  <span class="icon flaticon-call-2"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End Header Upper-->
+
+  <!-- Sticky Header  -->
+  <div class="sticky-header shadow-lg py-2 px-3">
+    <div class="auto-container clearfix">
+      <!--Logo-->
+      <div class="logo pull-left">
+        <a href="index.html" title=""><img src="assets/images/logo-main.jpg" alt="" title=""
+            class="logo-img-sticky" /></a>
+      </div>
+      <!--Right Col-->
+      <div class="pull-right">
+        <!-- Mobile Navigation Toggler -->
+        <div class="mobile-nav-toggler">
+          <span class="icon flaticon-menu-2"></span>
+        </div>
+        <!-- Main Menu -->
+        <nav class="main-menu navbar-expand-md">
+          <div class="navbar-header">
+            <!-- Toggle Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+            <ul class="navigation clearfix">
+              <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}">
+                <a routerLink="/">Home</a>
+              </li>
+              <li routerLinkActive="current" routerLink="/about-us">
+                <a routerLink="/about-us">About Us</a>
+              </li>
+              <li class="dropdown" routerLink="/services" routerLinkActive="current"
+                [routerLinkActiveOptions]="{ exact: false }">
+                <a>Services</a>
+                <ul>
+                  <li routerLink="/services/car-insurance" routerLinkActive="current"><a
+                      routerLink="/services/car-insurance">Car Insurance</a></li>
+                  <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a
+                      routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
+                  <li routerLink="/services/health-insurance" routerLinkActive="current"><a
+                      routerLink="/services/health-insurance">Health Insurance</a></li>
+                </ul>
+              </li>
+              <li routerLinkActive="current" routerLink="/renew-insurance">
+                <a routerLink="/renew-insurance">Renew Policy</a>
+              </li>
+              <li routerLinkActive="current" routerLink="/blogs">
+                <a routerLink="/blogs">Blog</a>
+              </li>
+              <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+              <li routerLinkActive="current" routerLink="/downloads">
+                <a routerLink="/downloads">Downloads</a>
+              </li>
+              <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
+                <a>Login</a>
+              </li>
+              <li *ngIf="isLoggedInUser === true">
+                <a (click)="authService.logout()">Logout</a>
+              </li>
+              <li *ngIf="isLoggedInUser && dataProvider.userData?.access?.access==='Admin' && !dataProvider.gettingUserData" routerLink="/admin/Dashboard">
+                <a >Admin Panel</a>
+              </li>
+            </ul>
           </div>
         </nav>
+        <!-- Main Menu End-->
+
+        <!-- Main Menu End-->
+        <div class="outer-box clearfix">
+          <!-- Phone Btn -->
+          <div class="phone-box">
+            <div class="box-inner">
+              <a class="phone" href="tel:+1555-89-7965">+1555 89 7965 <span class="icon flaticon-call-2"></span></a>
+            </div>
+          </div>
+        </div>
       </div>
-      <!-- End Mobile Menu -->
-    </header>
-    <!-- End Main Header -->
+    </div>
+  </div>
+  <!-- End Sticky Menu -->
+
+  <!-- Mobile Menu  -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn">
+      <span class="icon flaticon-multiply"></span>
+    </div>
+
+    <nav class="menu-box">
+      <div class="nav-logo">
+        <a routerLink="/"><img src="assets/images/logo-main.jpg" alt="" title="" /></a>
+      </div>
+      <div class="menu-outer">
+        <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
+        <div class="navbar-header">
+          <!-- Toggle Button -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+          <ul class="navigation clearfix">
+            <li routerLinkActive="current" routerLink="/" [routerLinkActiveOptions]="{ exact: true}">
+              <a routerLink="/">Home</a>
+            </li>
+            <li routerLinkActive="current" routerLink="/about-us">
+              <a routerLink="/about-us">About Us</a>
+            </li>
+            <li class="dropdown" routerLink="/services" routerLinkActive="current"
+              [routerLinkActiveOptions]="{ exact: false }">
+              <a>Services</a>
+              <ul>
+                <li routerLink="/services/car-insurance" routerLinkActive="current"><a
+                    routerLink="/services/car-insurance">Car Insurance</a></li>
+                <li routerLink="/services/two-wheeler-insurance" routerLinkActive="current"><a
+                    routerLink="/services/two-wheeler-insurance">Two-Wheeler Insurance</a></li>
+                <li routerLink="/services/health-insurance" routerLinkActive="current"><a
+                    routerLink="/services/health-insurance">Health Insurance</a></li>
+              </ul>
+            </li>
+            <li routerLinkActive="current" routerLink="/renew-insurance">
+              <a routerLink="/renew-insurance">Renew Policy</a>
+            </li>
+            <li routerLinkActive="current" routerLink="/blogs">
+              <a routerLink="/blogs">Blog</a>
+            </li>
+            <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+            <li routerLinkActive="current" routerLink="/downloads">
+              <a routerLink="/downloads">Downloads</a>
+            </li>
+            <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false && !dataProvider.gettingUserData">
+              <a>Login</a>
+            </li>
+            <li *ngIf="isLoggedInUser === true">
+              <a (click)="authService.logout()">Logout</a>
+            </li>
+            <li *ngIf="isLoggedInUser && dataProvider.userData?.access?.access==='Admin' && !dataProvider.gettingUserData" routerLink="/admin/Dashboard">
+              <a >Admin Panel</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+</header>
+<!-- End Main Header -->

@@ -14,16 +14,49 @@
             <div class="card-body">
               <h5 class="card-title">Upload website data</h5>
               <div>
-                <input class="form-control form-control-lg" id="formFileLg" type="file">
-              </div>
-              <div>
-                <button type="button" class="btn btn-primary mt-3">Submit</button>
+                <input class="form-control form-control-lg" id="formFileLg" [disabled]="disableForm" (change)="getDataFromfile($event)" type="file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
               </div>
             </div>
           </div>
         </div>
-
+      </div>
+      <div id="data" *ngIf="datalist?.length > 0">
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let heading of headerList">{{heading}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of datalist">
+              <td *ngFor="let index of headerList">{{item[index]}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" (click)="verifyDetails()">Confirm and upload data</button>
       </div>
     </main>
+  </div>
+</div>
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Incorrect data. Please enter a valid sheet.</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ol>
+          <li *ngFor="let item of incorrectFields">{{item.error}}</li>
+        </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

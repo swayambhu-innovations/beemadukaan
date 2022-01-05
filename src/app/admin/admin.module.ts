@@ -9,8 +9,10 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { PaymentDetailsComponent } from './payment-details/payment-details.component';
 import { UploadDataComponent } from './upload-data/upload-data.component';
 import { DownloadsComponent } from './downloads/downloads.component';
-
-
+import {MatIconModule} from '@angular/material/icon'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import { AdminComponent } from './admin.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,10 +23,14 @@ import { DownloadsComponent } from './downloads/downloads.component';
     UsersListComponent,
     PaymentDetailsComponent,
     UploadDataComponent,
-    DownloadsComponent
+    DownloadsComponent,
   ],
   imports: [
     CommonModule,
+    MatIconModule,
+    RouterModule,
+    ReactiveFormsModule,
+    MatProgressSpinnerModule,
     RouterModule.forChild([
       { path: 'admin/dashboard', component : DashboardComponent},
       { path: 'admin/customer-requests', component : CustomerRequestsComponent},

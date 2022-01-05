@@ -8,11 +8,11 @@ const routes: Routes = [
     children:[
       { path:'Dashboard', component: DashboardComponent, outlet:'adminOutlet'}
     ]
-  }
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AdminRoutingModule { }
+export class AdminRoutingModule { } 

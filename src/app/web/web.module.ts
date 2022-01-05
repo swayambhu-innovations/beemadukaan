@@ -62,7 +62,7 @@ import { DownloadsComponent } from './downloads/downloads.component';
       { path: 'blogs', component: BlogsComponent },
       { path: 'blogs/:id', component: SingleBlogComponent },
       { path: 'feedbacks', component: FeedbackComponent },
-      { path: 'downloads', component: DownloadsComponent }
+      { path: 'downloads', component: DownloadsComponent },
     ])
   ],
 })

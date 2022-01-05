@@ -27,7 +27,9 @@ import { AdminModule } from './admin/admin.module';
 import { DataProvider } from './providers/data.provider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import {AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 
 
 @NgModule({
@@ -41,6 +43,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AppRoutingModule,
     WebModule,
     AuthModule,
+    MatProgressSpinnerModule,
     AdminModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAnalytics(() => getAnalytics()),
@@ -53,8 +56,10 @@ import { MatDialogModule } from '@angular/material/dialog';
     provideRemoteConfig(() => getRemoteConfig()),
     provideStorage(() => getStorage()),
     BrowserAnimationsModule,
+    AngularFireStorageModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     FormsModule,
     ReactiveFormsModule
   ],
@@ -63,7 +68,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     DatabaseService,
     AuthencationService,
     UserDataService,
-    DataProvider
+    DataProvider,
+    // { provide: BUCKET, useValue: 'beemadukaan' }
   ],
   bootstrap: [AppComponent]
 })

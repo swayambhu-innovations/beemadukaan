@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataProvider } from 'src/app/providers/data.provider';
 import { AuthencationService } from 'src/app/services/authencation.service';
 
 declare var $:any;
@@ -9,7 +10,7 @@ declare var $:any;
 })
 export class HeaderComponent implements OnInit {
   isLoggedInUser : boolean = false;
-  constructor(public authService : AuthencationService) {
+  constructor(public authService : AuthencationService,public dataProvider:DataProvider) {
     this.checkAuthentication();
    }
 
