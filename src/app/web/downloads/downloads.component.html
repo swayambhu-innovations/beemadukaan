@@ -28,7 +28,7 @@
       <!-- Download Column -->
       <div class="form-column col-lg-4 col-md-6 col-sm-12 mb-3" *ngFor="let item of downloads">
         <div class="inner-column shadow">
-          <div class="section-icons-outer parallax-scene-3">
+          <div class="parallax-scene-3">
             <div data-depth="0.40" class="pattern-layer" style="
                         background-image: url(assets/images/background/pattern-4.png);
                       "></div>
@@ -36,11 +36,9 @@
           <h3>{{item.name}}</h3>
           <p class="text-white mb-1">Download this form and fill this.</p>
           <p class="text-white small">Published on : {{item.date}}</p>
-          <div class="form-group">
-            <a [href]="item.file" download>
-              <button class="btn btn-primary text-light">Download</button>
+            <a [href]="item.file" class="btn btn-primary text-light" download>
+              Download
             </a>
-          </div>
         </div>
       </div>
       <!-- Download Column -->

@@ -67,7 +67,7 @@ export class DatabaseService {
     path: string,
     file: File | null
   ): Promise<any> {
-    const ext = file!.name.split('.').pop(); 
+    const ext = file!.name.split('.').pop();
     if (file) {
       try {
         const storageRef = ref(this.storage, path);
