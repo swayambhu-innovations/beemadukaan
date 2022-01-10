@@ -13,6 +13,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import { AdminComponent } from './admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PoliciesComponent } from './policies/policies.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     PaymentDetailsComponent,
     UploadDataComponent,
     DownloadsComponent,
+    PoliciesComponent,
   ],
   imports: [
     CommonModule,
@@ -37,7 +39,8 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: 'admin/users', component : UsersListComponent},
       { path: 'admin/payment-details', component : PaymentDetailsComponent},
       { path: 'admin/upload-data', component : UploadDataComponent},
-      { path: 'admin/downloads', component : DownloadsComponent}
+      { path: 'admin/downloads', component : DownloadsComponent},
+      { path: 'admin/policies', component : PoliciesComponent},
     ])
   ]
 })

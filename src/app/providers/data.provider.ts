@@ -24,5 +24,6 @@ export class DataProvider{
     public dataTwo:any;
     public dataThree:any;
     public dataFour:any;
+    public showPaymentComplete:boolean = false;
     constructor(){}
 }

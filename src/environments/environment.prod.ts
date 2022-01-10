@@ -16,5 +16,10 @@ export const environment = {
       product: '2PqfXUJwE8qSYKuM0U6w8M',
     },
   },
+  cloudFunctions : {
+    createOrder: 'http://localhost:5001/beemadukaan/us-central1/createOrder',
+    capturePayment: 'http://localhost:5001/beemadukaan/us-central1/capturePayments',
+  },
+  RAZORPAY_KEY_ID: 'rzp_test_UHcxu4dBF7Du1Z',
   production: true
 };

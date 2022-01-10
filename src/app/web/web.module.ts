@@ -18,6 +18,7 @@ import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 import { ContentfulService } from '../services/contentful.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { DownloadsComponent } from './downloads/downloads.component';
     ContentfulService
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

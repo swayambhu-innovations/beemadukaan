@@ -30,13 +30,19 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
+    LottieModule.forRoot({ player: playerFactory }),
     MatSnackBarModule,
     MatDialogModule,
     BrowserModule,
