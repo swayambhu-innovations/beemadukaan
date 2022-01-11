@@ -7,35 +7,56 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Upload Data</h1>
+        <div class="d-flex">
+          <button type="button" [class]="showBulkUpload ? 'btn btn-primary' : 'btn btn-outline-info'" (click)="showBulkUpload = !showBulkUpload">{{showBulkUpload  ? 'Show Single Upload' : 'Show Bulk Upload' }}</button>
+        </div>
       </div>
-      <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3 ">
-          <div class="card shadow">
-            <div class="card-body">
-              <h5 class="card-title">Upload website data</h5>
-              <div>
-                <input class="form-control form-control-lg" id="formFileLg" [disabled]="disableForm" (change)="getDataFromfile($event)" type="file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+      <div *ngIf="showBulkUpload" id="bulk">
+        <h4>Bulk Upload</h4>
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mb-3 ">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title">Upload website data</h5>
+                <div>
+                  <input class="form-control form-control-lg" id="formFileLg" [disabled]="disableForm" (change)="getDataFromfile($event)" type="file" accept=".csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                </div>
               </div>
             </div>
           </div>
         </div>
+        <div id="data" *ngIf="datalist?.length > 0">
+          <table>
+            <thead>
+              <tr>
+                <th *ngFor="let heading of headerList">{{heading}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of datalist">
+                <td *ngFor="let index of headerList">{{item[index]}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="actions">
+          <button class="btn btn-primary" (click)="verifyDetails()">Confirm and upload data</button>
+        </div>
       </div>
-      <div id="data" *ngIf="datalist?.length > 0">
-        <table>
-          <thead>
-            <tr>
-              <th *ngFor="let heading of headerList">{{heading}}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let item of datalist">
-              <td *ngFor="let index of headerList">{{item[index]}}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="actions">
-        <button class="btn btn-primary" (click)="verifyDetails()">Confirm and upload data</button>
+      <div *ngIf="!showBulkUpload" class="moduleUpload">
+        <h4>Single Upload</h4>
+        <form [formGroup]="uploadDataForm" (ngSubmit)="uploadSingleData()">
+          <input type="text" class="input-group" required formControlName="nameOfInsured" placeholder="Name Of Insured">
+          <input type="email" class="input-group" required formControlName="email" placeholder="Email">
+          <input type="tel" class="input-group" required formControlName="mobileNumber" placeholder="Mobile Number">
+          <input type="number" class="input-group" required formControlName="policyNumber" placeholder="Policy Number">
+          <input type="text" class="input-group" required formControlName="registrationNo" placeholder="Registration Number">
+          <input type="number" class="input-group" required formControlName="totalPremiuim" placeholder="Total Premium">
+          <input type="number" class="input-group" required formControlName="premium" placeholder="To Be Paid Premium">
+          <input type="date" class="input-group" required formControlName="startDate" placeholder="Start Date Of Policy">
+          <input type="file" class="input-group" required formControlName="fileData" (change)="setFile($event)" placeholder="Policy File">
+          <button class="btn btn-info" type="submit">Confirm And Upload Data</button>
+        </form>
       </div>
     </main>
   </div>

@@ -1,0 +1,98 @@
+.d-flex{
+    background:white;
+    padding:20px;
+    margin:10px;
+    border-radius:10px;
+}
+.card{
+    margin-left: 20px;
+    animation:popOut 0.5s;
+}
+.badge{
+    font-size: 15px;
+    color:white;
+    margin:10px;
+    margin-left: 0px;
+}
+.badge-success{ background:rgb(115, 255, 115);color:black;}
+.badge-danger{ background:tomato;color:white;}
+.loader {
+    border: 8px solid #f3f3f3; /* Light grey */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    animation: spin 1s linear infinite;
+}
+.moduleUpload{
+    width:100%;
+    padding:20px;
+    background:white;
+    border-radius: 10px;
+    margin-top: 30px;
+    animation: popOut 0.3s linear;
+}
+
+.moduleUpload > form > input{
+    animation: popOut 0.3s linear;
+    padding:10px;
+    font-size: 15px;
+    border-bottom: 2px solid darkgrey;
+    margin:10px;
+}
+.moduleUpload > form > button {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+.moduleUpload > form > input:focus{
+    border-bottom: 2px solid #00bcd4;
+    color:#2c2c2c;
+}
+.moduleUpload > form > a{
+    animation: popOut 0.3s linear;
+    padding:10px;
+    font-size: 15px;
+    border-bottom: 2px solid #00bcd4;
+    margin:10px;
+    color:#2c2c2c;
+    display: inline-block;
+}
+.moduleUpload > form > div{
+    animation: popOut 0.3s linear;
+    padding:10px;
+    font-size: 15px;
+    /* border-bottom: 2px solid #00bcd4; */
+    margin:10px;
+    color:#2c2c2c;
+    display: inline-block;
+}
+.noData{
+    width:100%;
+}
+.noData > img{
+    height:300px;
+    width:auto;
+    position:relative;
+    left:50%;
+    transform:translateX(-50%);
+
+}
+.noData > h6{
+    text-align:center;
+    margin-top:50px;
+}
+@keyframes popOut{
+    0%{
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

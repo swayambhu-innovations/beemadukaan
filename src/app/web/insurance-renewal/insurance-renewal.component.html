@@ -14,14 +14,6 @@
     />
   </div>
   <div class="service-container">
-    <div class="section-icons-outer parallax-scene-1">
-      <div
-        data-depth="0.20"
-        class="pattern-layer"
-        style="background-image: url(images/background/pattern-8.png)"
-      ></div>
-    </div>
-
     <div class="auto-container">
       <h1>Renew Online</h1>
       <ul class="page-breadcrumb">
@@ -42,7 +34,7 @@
           <h4 class="mb-3">Policy Owner Info</h4>
           <!-- Login Form -->
           <div class="styled-form">
-            <form method="post">
+            <form [formGroup]="renewalForm" (ngSubmit)="getPolicyData()">
               <fieldset>
                 <div class="form-group">
                   <label>Enter your Customer ID *</label>
@@ -51,7 +43,8 @@
                     type="text"
                     name="username"
                     value=""
-                    placeholder="Your Customer ID"
+                    formControlName="premiumNo"
+                    placeholder="Premium Number"
                     required
                   />
                 </div>
@@ -62,33 +55,48 @@
                     type="text"
                     name="Policy"
                     value=""
-                    placeholder="Policy Number"
+                    formControlName="registrationNo"
+                    placeholder="Registration Number"
                     required
                   />
                 </div>
               </fieldset>
-              <a (click)="showData = !showData;" class="btn-style-one text-white"
-              >Click Here</a>
+              <button type="submit" class="btn-style-one text-white">Check Detail</button>
             </form>
           </div>
           <hr>
-          <div class="row" *ngIf="showData">
+          <div class="row" *ngIf="showData && policyData">
             <div class="col-12">
               <div class="text">
                 <strong>Name : </strong>
-                David Johnson
+                {{ policyData?.name }}
               </div>
               <div class="text">
-                <strong>Date of joining : </strong>
-                21 / 08 / 2021
+                <strong>Policy Effective Date : </strong>
+                {{policyData?.startDate}}
               </div>
               <div class="text">
-                <strong>Renewal Date : </strong>
-                12-12-2021 (EXPIRED)
+                <strong>Registration Number : </strong>
+                {{policyData?.registrationNo}}
               </div>
-              <a (click)="showData = !showData;" class="btn-style-one btn-sm text-white p-2 mt-2"
-              >Renew</a>
+              <div class="text">
+                <strong>Policy Cost : </strong>
+                {{policyData?.totalPremium}}
+              </div>
+              <div class="text">
+                <strong>Phone Number : </strong>
+                {{policyData?.mobileNumber}}
+              </div>
+              <div class="text" *ngIf="policyData?.policyURl">
+                <strong>Policy File : </strong>
+                <a [href]="policyData?.policyURl" download><button type="button" class="btn btn-info">Download</button></a>
+              </div>
+              <button class='btn btn-info' (click)="renewPolicy($event)" *ngIf="allowRenewal(policyData?.lastMonth,policyData?.expiryDate) && policyData?.paid">Renew</button>
             </div>
+          </div>
+          <div class="row" *ngIf="showData && !(policyData)">
+            <h5 *ngIf="renewalForm.value.premiumNo">No data found for premium number {{renewalForm.value.premiumNo}}</h5>
+            <h5 *ngIf="renewalForm.value.registrationNo">No data found for registration number {{renewalForm.value.registrationNo}}</h5>
           </div>
         </div>
       </div>

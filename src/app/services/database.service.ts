@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, addDoc, collectionData, WriteBatch ,DocumentReference, CollectionReference , collection , setDoc, doc, updateDoc, deleteDoc, docSnapshots,onSnapshot, docData, getDoc, writeBatch } from '@angular/fire/firestore';
+import { Firestore, addDoc, collectionData, WriteBatch, where ,DocumentReference, CollectionReference , collection , setDoc, doc, updateDoc, deleteDoc, docSnapshots,onSnapshot, docData, getDoc, writeBatch } from '@angular/fire/firestore';
 import { getDocs, query } from 'firebase/firestore';
 import { PolicyData, PostComment } from '../structures/method.structure';
 import { ContactRequest } from '../structures/user.structure';
@@ -58,15 +58,29 @@ export class DatabaseService {
       return await setDoc(doc(this.fs,'policy/'+item.policyNumber),item)
     })
   }
-  addPolicyData(id:string,data:PolicyData){
-    setDoc(doc(this.fs,'policy/'+id),{
-      data:data
+  getPolicyData(id:string){
+    return getDoc(doc(this.fs,'policy/'+id));
+  }
+  getAllPolicy(){
+    return getDocs(collection(this.fs,'policy'));
+  }
+  addPolicyData(data:PolicyData){
+    return addDoc(collection(this.fs,'policy/'),data).then((document:any)=>{
+      console.log(document)
+      console.log(document.id)
+      return setDoc(doc(this.fs,'policy/'+document.id),{id:document.id},{merge:true})
     })
   }
-  async upload(
-    path: string,
-    file: File | null
-  ): Promise<any> {
+  updatePolicyData(id:string,data:PolicyData){
+    return updateDoc(doc(this.fs,'policy/'+id),data)
+  }
+  deletePolicy(id:string){
+    return deleteDoc(doc(this.fs,'policy/'+id))
+  }
+  setPolicyAsAlreadyPaid(id:string){
+    return updateDoc(doc(this.fs,'policy/'+id),{paid:true})
+  }
+  async upload(path: string,file: File | null): Promise<any> {
     const ext = file!.name.split('.').pop();
     if (file) {
       try {

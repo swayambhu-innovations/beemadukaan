@@ -1,0 +1,71 @@
+<app-header></app-header>
+
+<div class="container-fluid">
+    <div class="row" style="min-height: 100vh;">
+        <app-sidebar id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-white shadow sidebar collapse">
+        </app-sidebar>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div
+                class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">Upload Data</h1>
+            </div>
+            <div class="d-flex flex-wrap flex-md-nowrap ">
+                <div class="card" style="width: 18rem;" *ngFor="let item of policyDataList">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.registrationNo}}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{item.policyNumber}}</h6>
+                        <span [class]="item.paid ? 'badge badge-success' : 'badge badge-danger'">
+                            {{item.paid ? 'Paid' : 'Unpaid'}}
+                        </span>
+                        <br>
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" class="btn btn-info" (click)="setModalData(item)">Edit</button>
+                            <button type="button" class="btn btn-info" (click)="deletePolicy(item)">Delete</button>
+                            <button type="button" class="btn btn-info" *ngIf="!item?.paid" (click)="setAsAlreadyPaid(item)">Already paid</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="loader" *ngIf="!gotData"></div>
+                <div class="noData" *ngIf="policyDataList.length==0 && gotData">
+                    <img src="assets/images/noData.svg" alt="No Data Found">
+                    <h6>No data found</h6>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+<div class="modal" tabindex="-1" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Data</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body moduleUpload">
+                <h6>Registration Number {{currentData?.registrationNo}}</h6>
+                <form [formGroup]="uploadDataForm" (ngSubmit)="uploadSingleData()">
+                    <input type="text" class="input-group" [value]="currentData?.name" required formControlName="nameOfInsured" placeholder="Name Of Insured">
+                    <input type="email" class="input-group" [value]="currentData?.email" required formControlName="email" placeholder="Email">
+                    <input type="tel" class="input-group" [value]="currentData?.mobileNumber" required formControlName="mobileNumber" placeholder="Mobile Number">
+                    <input type="number" class="input-group" [value]="currentData?.policyNumber" required formControlName="policyNumber" placeholder="Policy Number">
+                    <!-- <input type="text" class="input-group" [value]="currentData?.registrationNo" readonly required formControlName="registrationNo" placeholder="Registration Number"> -->
+                    <input type="number" class="input-group" [value]="currentData?.totalPremium" required formControlName="totalPremiuim" placeholder="Total Premium">
+                    <input type="number" class="input-group" [value]="currentData?.toBePaidPremium" required formControlName="premium" placeholder="To Be Paid Premium">
+                    <input type="date" class="input-group" [value]="currentData?.startDate" required formControlName="startDate" placeholder="Start Date Of Policy">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" [class]="policyPaid ? 'btn btn-primary' :'btn btn-secondary'" (click)="policyPaid=true">Paid</button>
+                        <button type="button" [class]="!policyPaid ? 'btn btn-primary' :'btn btn-secondary'" (click)="policyPaid=false">Unpaid</button>
+                    </div>
+                    <br>
+                    <a [href]="currentData?.policyURl" *ngIf="currentData?.policyURl">A file is already present here</a>
+                    <input type="file" class="input-group" required [placeholder]="currentData?.policyURl ? 'Replace File' : 'Upload File'" (change)="setFile($event)" placeholder="Policy File">
+                    <button class="btn btn-info" type="submit">Confirm And Upload Data</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

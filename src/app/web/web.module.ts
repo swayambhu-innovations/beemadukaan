@@ -22,6 +22,7 @@ import { TravelInsuraceComponent } from './services/travel-insurace/travel-insur
 import { FireInsuranceComponent } from './services/fire-insurance/fire-insurance.component';
 import { OtherInsuranceComponent } from './services/other-insurance/other-insurance.component';
 import { LifeInsuranceComponent } from './services/life-insurance/life-insurance.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { LifeInsuranceComponent } from './services/life-insurance/life-insurance
     ContentfulService
   ],
   imports: [
+    HttpClientModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

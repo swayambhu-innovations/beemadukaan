@@ -1,10 +1,10 @@
-<div class="main-homepage">
+<div class="main-homepage" *ngIf="!dataProvider.showPaymentComplete">
   <div class="page-wrapper bg-gray">
     <router-outlet></router-outlet>
   </div>
 </div>
 
-<div class="modal fade contactRequestsModal" id="addons-options-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+<div *ngIf="!dataProvider.showPaymentComplete" class="modal fade contactRequestsModal" id="addons-options-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
   aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content" style="background-image: url(assets/images/background/pattern-2.png);background-position: center;">
@@ -61,4 +61,10 @@
 </div>
 <div id="overlay" *ngIf="dataProvider.pageSetting.blur">
   <mat-progress-spinner color="primary" mode="indeterminate"  [diameter]="60"></mat-progress-spinner>
+</div>
+<div id="paymentComplete" *ngIf="dataProvider.showPaymentComplete">
+  <div class="col">
+    <ng-lottie [options]="options" width="500px" height="500px" (animationCreated)="animationCreated($event)"></ng-lottie>
+    <h1>Payment Successful</h1>
+  </div>
 </div>

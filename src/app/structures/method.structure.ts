@@ -42,18 +42,17 @@ export type ExtraLoginGoogleInfo={
     phoneNumber:string;
 }
 export type PolicyData = {
-    serial:string;
     name:string;
     email:string;
     mobileNumber:string;
     registrationNo:string;
-    idvValue:string;
     policyNumber:string;
-    businessType:string;
-    policyEffectiveDate:string;
-    odPremiuim:string;
-    tpPremiuim:string;
-    netPremuim:string;
-    serviceTax:string;
-    totalPremiumInPortal:string;
+    startDate:string;
+    totalPremium:string;
+    toBePaidPremium:string;
+    lastMonth:any;
+    expiryDate:any;
+    paid:boolean;
+    policyURl:string;
+    id:'';
 }
