@@ -5,11 +5,11 @@ import { post } from 'src/app/structures/method.structure';
 
 declare var $:any;
 @Component({
-  selector: 'app-health-insurance',
-  templateUrl: './health-insurance.component.html',
-  styleUrls: ['./health-insurance.component.css']
+  selector: 'app-life-insurance',
+  templateUrl: './life-insurance.component.html',
+  styleUrls: ['./life-insurance.component.css']
 })
-export class HealthInsuranceComponent implements OnInit {
+export class LifeInsuranceComponent implements OnInit {
 
   blogs : post[] = []
   constructor(private _contentful:ContentfulService) { }
@@ -43,5 +43,4 @@ export class HealthInsuranceComponent implements OnInit {
     console.log(el)
     el.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
   }
-
 }

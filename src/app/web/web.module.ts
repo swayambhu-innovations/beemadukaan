@@ -18,6 +18,10 @@ import { SingleBlogComponent } from './blogs/single-blog/single-blog.component';
 import { ContentfulService } from '../services/contentful.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { TravelInsuraceComponent } from './services/travel-insurace/travel-insurace.component';
+import { FireInsuranceComponent } from './services/fire-insurance/fire-insurance.component';
+import { OtherInsuranceComponent } from './services/other-insurance/other-insurance.component';
+import { LifeInsuranceComponent } from './services/life-insurance/life-insurance.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +40,10 @@ import { DownloadsComponent } from './downloads/downloads.component';
     FeedbackComponent,
     SingleBlogComponent,
     DownloadsComponent,
+    TravelInsuraceComponent,
+    FireInsuranceComponent,
+    OtherInsuranceComponent,
+    LifeInsuranceComponent,
   ],
   providers:[
     ContentfulService
@@ -55,6 +63,10 @@ import { DownloadsComponent } from './downloads/downloads.component';
           { path:'car-insurance' , component : CarInsuranceComponent},
           { path:'two-wheeler-insurance', component : TwowheelerInsuranceComponent },
           { path:'health-insurance', component : HealthInsuranceComponent},
+          { path:'travel-insurance', component : TravelInsuraceComponent},
+          { path:'fire-insurance', component : FireInsuranceComponent },
+          { path:'other-insurance', component : OtherInsuranceComponent },
+          { path:'life-insurance', component : LifeInsuranceComponent },
         ],
       },
       { path: 'renew-insurance', component: InsuranceRenewalComponent },

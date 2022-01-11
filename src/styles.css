@@ -54,3 +54,5 @@ color : #000 !important;
 .bg-gray{
   background-color: #e1e1e1 !important;
 }
+.list-style-number {font-size: 16px;line-height: 30px;}.list-style-number li {margin-bottom: 10px;}
+.insurance-block-two {display: flex;flex-direction: column;}.insurance-block-two .inner-box {height: 100%;}

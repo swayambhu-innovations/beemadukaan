@@ -1,0 +1,103 @@
+<app-header></app-header>
+        <!-- Page Title -->
+        <section class="page-title">
+          <div class="background-container">
+            <img
+              class="left-image"
+              src="assets/images/background/header-left-bg.png"
+              alt=""
+            />
+            <img
+              class="right-image"
+              src="assets/images/background/service-single-right-bg.png"
+              alt=""
+            />
+          </div>
+          <div
+            class="service-container"
+            style="
+              background-image: url('images/background/services-left-bg.html');
+            "
+          >
+            <div class="section-icons-outer parallax-scene-1">
+              <div
+                data-depth="0.20"
+                class="pattern-layer"
+                style="background-image: url(images/background/pattern-8.png)"
+              ></div>
+            </div>
+
+            <div class="auto-container">
+              <h1>Life Insurance</h1>
+              <ul class="page-breadcrumb">
+                <li><a routerLink="/services">Services</a></li>
+                <li>Life Insurance</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <!-- End Page Title -->
+
+        <!-- Insurance Section Two -->
+        <section class="insurance-section-two bg-white">
+          <div class="auto-container">
+            <!-- Sec Title -->
+            <div class="sec-title centered">
+              <h2>
+                Available Life Insurance Policies
+              </h2>
+              <div class="text">
+                Coming Soon!
+              </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- End Insurance Section Two -->
+
+        <!-- Blog Section -->
+        <section class="pricing-section">
+          <div class="auto-container">
+            <!-- Sec Title -->
+            <div class="sec-title centered">
+              <h2>
+                Read our blogs for more information
+
+              </h2>
+            </div>
+            <!-- End Sec Title -->
+            <div class="inner-container">
+                <div class="row clearfix">
+                  <!-- News Block -->
+                  <div class="news-block col-lg-4 col-md-6 col-sm-12 " *ngFor="let blog of blogs; index as i;">
+                    <div
+                      class="inner-box wow fadeInLeft shadow"
+                      data-wow-delay="0ms"
+                      data-wow-duration="1500ms"
+                    >
+                      <div class="image">
+                        <a [routerLink]="['/blogs', blog.id]"
+                          ><img src="{{ blog.image }}" alt="{{ blog.name }}"
+                        /></a>
+                      </div>
+                      <div class="lower-content">
+                        <ul class="post-meta">
+                          <li>
+                            <span class="icon flaticon-user"></span>{{ blog.date }}
+                          </li>
+                        </ul>
+                        <h4>
+                          <a [routerLink]="['/blogs', blog.id]"
+                            >{{ blog.name }}</a
+                          >
+                        </h4>
+                        <a [routerLink]="['/blogs', blog.id]" class="read-more">Read More</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+       </section>
+  <!-- End Blog Section -->
+<app-footer></app-footer>
