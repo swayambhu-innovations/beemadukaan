@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Entry } from 'contentful';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { ContentfulService } from 'src/app/services/contentful.service';
 import { post } from 'src/app/structures/method.structure';
 
@@ -12,16 +15,22 @@ declare var jquery : any;
 })
 export class HomepageComponent implements OnInit {
   blogs : post[] = []
-  constructor(private _contentful:ContentfulService) { }
+  constructor(private _contentful:ContentfulService, private _activatedRoute : ActivatedRoute) {
+    this._activatedRoute.params.forEach((params: any) => {
+     console.log(params)
+    });
+  }
   data : any;
   isActive : boolean = false;
+  isAdminPanel : boolean = false;
   private products: Entry<any>[] = [];
   ngOnInit(): void {
     $.getScript('assets/js/script.js');
-
-    setTimeout(() => {
-      $("#addons-options-modal").modal('show');
-    }, 5000);
+    if(this.isAdminPanel){
+      setTimeout(() => {
+        $("#addons-options-modal").modal('show');
+      }, 5000);
+    }
     this.data = [
       {
         id : 1,

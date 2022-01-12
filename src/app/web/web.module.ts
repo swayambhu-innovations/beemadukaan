@@ -23,6 +23,8 @@ import { FireInsuranceComponent } from './services/fire-insurance/fire-insurance
 import { OtherInsuranceComponent } from './services/other-insurance/other-insurance.component';
 import { LifeInsuranceComponent } from './services/life-insurance/life-insurance.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TermsConditionsComponent } from './terms-conditions/terms-conditions.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     FireInsuranceComponent,
     OtherInsuranceComponent,
     LifeInsuranceComponent,
+    TermsConditionsComponent,
+    PrivacyPolicyComponent,
   ],
   providers:[
     ContentfulService
@@ -77,6 +81,8 @@ import { HttpClientModule } from '@angular/common/http';
       { path: 'blogs/:id', component: SingleBlogComponent },
       { path: 'feedbacks', component: FeedbackComponent },
       { path: 'downloads', component: DownloadsComponent },
+      { path: 'privacy-policy', component: PrivacyPolicyComponent },
+      { path: 'terms-condition', component: TermsConditionsComponent },
     ])
   ],
 })

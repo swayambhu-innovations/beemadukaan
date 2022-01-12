@@ -17,7 +17,7 @@
             <div class="form-column col-lg-7 col-md-12 col-sm-12">
               <div class="inner-column">
                 <div class="newsletter-form">
-                  <form method="post" >
+                  <form >
                     <div class="form-group">
                       <span class="icon fa fa-envelope"></span>
                       <input
@@ -26,10 +26,14 @@
                         value=""
                         placeholder="Enter your mail"
                         required=""
+                        [(ngModel)]="emailSubscription"
+                        (change)="checkEmail()" [email]="true"
                       />
+                      <span class="text-white mt-1" *ngIf="errorMsg" [innerHTML]="errorMsg"></span>
                       <button
-                        type="submit"
+                        type="button"
                         class="theme-btn flaticon-send"
+                        (click)="submitted=true;checkEmail();"
                       ></button>
                     </div>
                   </form>
@@ -135,7 +139,7 @@ of 110 offices in 95 cities across 29 states.
                       <li><a routerLink="/about-us">About us</a></li>
                       <li><a routerLink="/services">Services</a></li>
                       <li><a routerLink="/contact-us">contact us</a></li>
-                      <li><a routerLink="/feedbacks">Feedbacks</a></li>
+                      <!-- <li><a routerLink="/feedbacks">Feedbacks</a></li> -->
                       <li><a routerLink="/downloads">Downloads</a></li>
                     </ul>
                   </div>
@@ -143,12 +147,11 @@ of 110 offices in 95 cities across 29 states.
                   <div class="column col-lg-6 col-md-6 col-sm-12">
                     <h3>Insurance</h3>
                     <ul class="list-links">
-                      <li><a href="#">car insurance</a></li>
-                      <li><a href="#">bike insurance</a></li>
-                      <li><a href="#">bus insurance</a></li>
-                      <li><a href="#">mini truck insurance</a></li>
-                      <li><a href="#">jeep insurance</a></li>
-                      <li><a href="#">lorry insurance</a></li>
+                      <li><a routerLink="/services/car-insurance">car insurance</a></li>
+                      <li><a routerLink="/services/health-insurance">Health Insurance</a></li>
+                      <li><a routerLink="/services/travel-insurance">Travel Insurance</a></li>
+                      <li><a routerLink="/services/other-insurance">Other Insurance</a></li>
+                      <li><a routerLink="/services/life-insurance">Life Insurance (LIC)</a></li>
                     </ul>
                   </div>
                 </div>
@@ -212,8 +215,8 @@ of 110 offices in 95 cities across 29 states.
             </div>
             <div class="pull-right">
               <ul class="footer-nav">
-                <li><a >Privacy Policy</a></li>
-                <li><a >Terms & Condition</a></li>
+                <li routerLink="/privacy-policy"><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                <li routerLink="/terms-condition"><a routerLink="/terms-condition">Terms & Condition</a></li>
               </ul>
             </div>
           </div>

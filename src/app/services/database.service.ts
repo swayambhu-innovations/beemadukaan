@@ -50,6 +50,10 @@ export class DatabaseService {
     this.postCommentRef = collection(this.fs,'posts/'+id+'/comments');
     return addDoc(this.postCommentRef,data)
   }
+  addEmailSubscriptionById(data:PostComment){
+    let subscriptionCollectionRef = collection(this.fs,'emailSubscriptions');
+    return addDoc(subscriptionCollectionRef,data)
+  }
   getCommentById(id:string){
     return getDocs(query(collection(this.fs,'posts/'+id+'/comments')));
   }

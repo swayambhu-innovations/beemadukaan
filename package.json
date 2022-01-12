@@ -25,6 +25,7 @@
     "@contentful/rich-text-html-renderer": "^15.10.0",
     "contentful": "^9.1.5",
     "firebase": "^9.4.0",
+    "lottie-web": "^5.8.1",
     "marked": "^4.0.7",
     "ngx-lottie": "^8.0.1",
     "rxfire": "^6.0.0",
