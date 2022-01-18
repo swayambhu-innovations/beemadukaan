@@ -64,3 +64,11 @@ color : #000 !important;
 .noScroll{
   overflow:hidden;
 }
+
+.sponsors-carousel .owl-item img {
+  max-height: 135px;
+  min-height: 135px;
+  object-fit: contain;
+  background: #fff;
+  padding: 5px;
+}

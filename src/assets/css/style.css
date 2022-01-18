@@ -2260,7 +2260,6 @@
 .clients-section .image-box img {
   position: relative;
   width: auto;
-  opacity: 0.4;
   margin: 0 auto;
   filter: grayscale(0%);
   -webkit-transition: all 500ms ease;
