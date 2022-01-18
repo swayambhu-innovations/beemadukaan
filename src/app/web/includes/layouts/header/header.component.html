@@ -65,8 +65,8 @@
                         Other Insurance
                       </a>
                     </li>
-                    <li routerLink="/services/life-insurance" routerLinkActive="current"><a
-                        routerLink="/services/life-insurance">
+                    <li><a href="https://licindia.in/Home/Pay-Premium-Online" target="_blank"
+                        >
                         <span class="material-icons">support</span>
                         Life Insurance (LIC)
                       </a>
@@ -151,23 +151,41 @@
               </li>
               <li class="dropdown" routerLink="/services" routerLinkActive="current"
                 [routerLinkActiveOptions]="{ exact: false }">
-                <a>
-                  <i class="fa fa-life-ring" aria-hidden="true" routerLink="/services" routerLinkActive="text-primary"
-                    [routerLinkActiveOptions]="{ exact: false }"></i>
+
+                <a routerLink="/services" routerLinkActive="text-primary">
                   Services
                 </a>
                 <ul>
-                  <li routerLink="/services/car-insurance" routerLinkActive="current"><span
-                      class="material-icons">time_to_leave</span><a routerLink="/services/car-insurance">Car
-                      Insurance</a></li>
+                  <li routerLink="/services/car-insurance" routerLinkActive="current"><a
+                      routerLink="/services/car-insurance">
+                      <span class="material-icons">time_to_leave</span>
+                      Car Insurance
+                    </a>
+                  </li>
                   <li routerLink="/services/health-insurance" routerLinkActive="current"><a
-                      routerLink="/services/health-insurance">Health Insurance</a></li>
+                      routerLink="/services/health-insurance">
+                      <span class="material-icons">health_and_safety</span>
+                      Health Insurance
+                    </a>
+                  </li>
                   <li routerLink="/services/travel-insurance" routerLinkActive="current"><a
-                      routerLink="/services/travel-insurance">Travel Insurance</a></li>
+                      routerLink="/services/travel-insurance">
+                      <span class="material-icons">flight</span>
+                      Travel Insurance
+                    </a>
+                  </li>
                   <li routerLink="/services/other-insurance" routerLinkActive="current"><a
-                      routerLink="/services/other-insurance">Other Insurance</a></li>
-                  <li routerLink="/services/life-insurance" routerLinkActive="current"><a
-                      routerLink="/services/life-insurance">Life Insurance (LIC)</a></li>
+                      routerLink="/services/other-insurance">
+                      <span class="material-icons">wheelchair_pickup</span>
+                      Other Insurance
+                    </a>
+                  </li>
+                  <li><a href="https://licindia.in/Home/Pay-Premium-Online" target="_blank"
+                      >
+                      <span class="material-icons">support</span>
+                      Life Insurance (LIC)
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li routerLinkActive="current" routerLink="/renew-insurance">
@@ -176,7 +194,9 @@
               <li routerLinkActive="current" routerLink="/blogs">
                 <a routerLink="/blogs">Blog</a>
               </li>
-              <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+              <li routerLinkActive="current" routerLink="/contact-us">
+                <a routerLink="/contact-us">Contact us</a>
+              </li>
               <li routerLinkActive="current" routerLink="/downloads">
                 <a routerLink="/downloads">Downloads</a>
               </li>
@@ -188,8 +208,8 @@
               </li>
               <li
                 *ngIf="isLoggedInUser && dataProvider.userData?.access?.access==='Admin' && !dataProvider.gettingUserData"
-                routerLink="/admin/Dashboard">
-                <a>Admin Panel</a>
+                routerLink="../../admin/Dashboard">
+                <a routerLink="admin/dashboard" routerLinkActive="current">Admin Panel</a>
               </li>
             </ul>
           </div>
@@ -242,35 +262,56 @@
             </li>
             <li class="dropdown" routerLink="/services" routerLinkActive="current"
               [routerLinkActiveOptions]="{ exact: false }">
-              <a>
+
+              <a routerLink="/services" routerLinkActive="text-primary">
                 Services
               </a>
               <ul>
                 <li routerLink="/services/car-insurance" routerLinkActive="current"><a
-                    routerLink="/services/car-insurance"><span class="material-icons">time_to_leave</span>Car
-                    Insurance</a></li>
+                    routerLink="/services/car-insurance">
+                    <span class="material-icons">time_to_leave</span>
+                    Car Insurance
+                  </a>
+                </li>
                 <li routerLink="/services/health-insurance" routerLinkActive="current"><a
-                    routerLink="/services/health-insurance">Health Insurance</a></li>
+                    routerLink="/services/health-insurance">
+                    <span class="material-icons">health_and_safety</span>
+                    Health Insurance
+                  </a>
+                </li>
                 <li routerLink="/services/travel-insurance" routerLinkActive="current"><a
-                    routerLink="/services/travel-insurance">Travel Insurance</a></li>
+                    routerLink="/services/travel-insurance">
+                    <span class="material-icons">flight</span>
+                    Travel Insurance
+                  </a>
+                </li>
                 <li routerLink="/services/other-insurance" routerLinkActive="current"><a
-                    routerLink="/services/other-insurance">Other Insurance</a></li>
-                <li routerLink="/services/life-insurance" routerLinkActive="current"><a
-                    routerLink="/services/life-insurance">Life Insurance (LIC)</a></li>
+                    routerLink="/services/other-insurance">
+                    <span class="material-icons">wheelchair_pickup</span>
+                    Other Insurance
+                  </a>
+                </li>
+                <li><a href="https://licindia.in/Home/Pay-Premium-Online" target="_blank"
+                    >
+                    <span class="material-icons">support</span>
+                    Life Insurance (LIC)
+                  </a>
+                </li>
               </ul>
             </li>
             <li routerLinkActive="current" routerLink="/renew-insurance">
               <a routerLink="/renew-insurance">Renew Policy</a>
             </li>
-            <li routerLinkActive="current" routerLink="/blogs" >
+            <li routerLinkActive="current" routerLink="/blogs">
               <a routerLink="/blogs">Blog</a>
             </li>
-            <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
+            <li routerLinkActive="current" routerLink="/contact-us">
+              <a routerLink="/contact-us">Contact us</a>
+            </li>
             <li routerLinkActive="current" routerLink="/downloads">
               <a routerLink="/downloads">Downloads</a>
             </li>
-            <li routerLinkActive="current" routerLink="../auth/signin"
-              *ngIf="isLoggedInUser == false && !dataProvider.gettingUserData">
+            <li routerLinkActive="current" routerLink="../auth/signin" *ngIf="isLoggedInUser === false">
               <a>Login</a>
             </li>
             <li *ngIf="isLoggedInUser === true">
@@ -278,8 +319,8 @@
             </li>
             <li
               *ngIf="isLoggedInUser && dataProvider.userData?.access?.access==='Admin' && !dataProvider.gettingUserData"
-              routerLink="/admin/Dashboard">
-              <a>Admin Panel</a>
+              routerLink="../../admin/Dashboard">
+              <a routerLink="admin/dashboard" routerLinkActive="current">Admin Panel</a>
             </li>
           </ul>
         </div>

@@ -515,3 +515,12 @@
     font-size: var(--font-16);
   }
 }
+
+@media screen and (max-width : 1300px){
+  .main-header .phone-box .box-inner .phone {
+      font-size: 18px !important;
+  }
+  .outer-box.clearfix {
+      margin-left: 20px !important;
+  }
+  }
