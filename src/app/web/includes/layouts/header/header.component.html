@@ -1,12 +1,12 @@
 <!-- Main Header-->
-<header class="main-header header-style-two shadow-lg p-3">
+<header class="main-header header-style-two shadow-lg p-2">
   <!-- Header Upper -->
   <div class="header-upper">
     <div class="auto-container">
       <div class="inner-container clearfix">
         <div class="logo-box">
           <div class="logo">
-            <a routerLink="/"><img src="assets/images/logo-main.jpg" alt="" title="Beema Dukaan" class="logo-img" /></a>
+            <a routerLink="/"><img src="assets/images/logo.png" alt="Beema Dukaan" title="Beema Dukaan" class="logo-img" /></a>
           </div>
         </div>
 
@@ -120,7 +120,7 @@
     <div class="auto-container clearfix">
       <!--Logo-->
       <div class="logo pull-left">
-        <a href="index.html" title=""><img src="assets/images/logo-main.jpg" alt="" title=""
+        <a routerLink="/" title=""><img src="assets/images/logo-sticky.png" alt="Beema Dukaan" title=""
             class="logo-img-sticky" /></a>
       </div>
       <!--Right Col-->
@@ -219,7 +219,7 @@
 
     <nav class="menu-box">
       <div class="nav-logo">
-        <a routerLink="/"><img src="assets/images/logo-main.jpg" alt="" title="" /></a>
+        <a routerLink="/"><img src="assets/images/logo.png" alt="Beema Dukaan" title="" /></a>
       </div>
       <div class="menu-outer">
         <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header-->
@@ -243,8 +243,6 @@
             <li class="dropdown" routerLink="/services" routerLinkActive="current"
               [routerLinkActiveOptions]="{ exact: false }">
               <a>
-                <i class="fa fa-life-ring" aria-hidden="true" routerLink="/services" routerLinkActive="text-primary"
-                  [routerLinkActiveOptions]="{ exact: false }"></i>
                 Services
               </a>
               <ul>
@@ -264,7 +262,7 @@
             <li routerLinkActive="current" routerLink="/renew-insurance">
               <a routerLink="/renew-insurance">Renew Policy</a>
             </li>
-            <li routerLinkActive="current" routerLink="/blogs">
+            <li routerLinkActive="current" routerLink="/blogs" >
               <a routerLink="/blogs">Blog</a>
             </li>
             <li routerLinkActive="current" routerLink="/contact-us"><a routerLink="/contact-us">Contact us</a></li>
@@ -272,7 +270,7 @@
               <a routerLink="/downloads">Downloads</a>
             </li>
             <li routerLinkActive="current" routerLink="../auth/signin"
-              *ngIf="isLoggedInUser === false && !dataProvider.gettingUserData">
+              *ngIf="isLoggedInUser == false && !dataProvider.gettingUserData">
               <a>Login</a>
             </li>
             <li *ngIf="isLoggedInUser === true">

@@ -42,7 +42,7 @@ export class HomepageComponent implements OnInit {
         id : 2,
         isActive : false,
         title : 'What is car insurance?​',
-        description : 'It is an insurance policy that protects cars against damage or loss resulting from an accident, theft or any other third-party liability. You can buy car insurance online or by visiting a Liberty General Insurance branch.'
+        description : 'It is an insurance policy that protects cars against damage or loss resulting from an accident, theft or any other third-party liability. You can buy car insurance online or by visiting a Beema Dukaan branch.'
       },
       {
         id : 3,
