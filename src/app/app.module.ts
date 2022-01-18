@@ -32,6 +32,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { connectFunctionsEmulator } from 'firebase/functions';
 
 export function playerFactory() {
   return player;
@@ -56,7 +57,11 @@ export function playerFactory() {
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    provideFunctions(() => getFunctions()),
+    provideFunctions(() => {
+      const functions = getFunctions();
+      connectFunctionsEmulator(functions,'localhost',5001);
+      return functions;
+    }),
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
     provideRemoteConfig(() => getRemoteConfig()),

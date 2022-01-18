@@ -1,16 +1,17 @@
 const functions = require('firebase-functions');
 const Razorpay = require('razorpay');
-let key_id = 'rzp_test_UHcxu4dBF7Du1Z';
-let key_secret = 'njAwxLhWKOf6PKVw7XBUYAyE';
+let key_id = 'rzp_live_ojGuKvMDp0167v';
+let key_secret = 'e99WZHA5aJkND4yhlc7kE3ob';
 let request = require('request');
-const cors = require('cors')({ origin: true });
+import * as cors from 'cors';
+const corsHandler = cors({origin: true});
 let instance = new Razorpay({
   key_id: key_id,
   key_secret: key_secret,
 });
 
 exports.createOrder = functions.https.onRequest((req: any, res: any) => {
-  return cors(req, res, () => {
+  corsHandler(req, res, () => {
     let options = {
       amount: req.body.amount,
       currency: 'INR',
@@ -21,8 +22,9 @@ exports.createOrder = functions.https.onRequest((req: any, res: any) => {
     });
   });
 });
+
 exports.capturePayments = functions.https.onRequest((req: any, res: any) => {
-  return cors(req, res, () => {
+  corsHandler(req, res, () => {
     request(
       {
         method: 'POST',

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DataProvider } from 'src/app/providers/data.provider';
 import { DatabaseService } from 'src/app/services/database.service';
+import { PaymentService } from 'src/app/services/payment.service';
 import { AlertsAndNotificationsService } from 'src/app/services/uiService/alerts-and-notifications.service';
 import { environment } from 'src/environments/environment';
 
@@ -28,16 +29,18 @@ export class InsuranceRenewalComponent implements OnInit {
     private dataProvider: DataProvider,
     private https: HttpClient,
     private alertify:AlertsAndNotificationsService,
+    private paymentService: PaymentService,
   ) {}
   getPolicyData() {
     if (this.renewalForm.value.premiumNo != '') {
+      document.querySelector('app-root')!.classList.add('noScroll');
       this.dataProvider.pageSetting.blur = true;
       this.dbService
         .getAllPolicy()
         .then((data: any) => {
           data.forEach((element: any) => {
             if (
-              element.data().policyNumber == this.renewalForm.value.premiumNo
+              element.data().policyNumber == this.renewalForm.value.premiumNo && element.data().paid === false
             ) {
               console.log('data', element.data());
               this.policyData = element.data();
@@ -67,7 +70,7 @@ export class InsuranceRenewalComponent implements OnInit {
           data.forEach((element: any) => {
             if (
               element.data().registrationNo ==
-              this.renewalForm.value.registrationNo
+              this.renewalForm.value.registrationNo && element.data().paid === false
             ) {
               console.log('data', element.data());
               this.policyData = element.data();
@@ -109,7 +112,7 @@ export class InsuranceRenewalComponent implements OnInit {
     ) {
       if (
         confirm(
-          'Are you sure you wan to continue to payment for registration number ' +
+          'Are you sure you want to continue to payment for registration number ' +
             this.policyData.registrationNo
         )
       ) {
@@ -181,6 +184,10 @@ export class InsuranceRenewalComponent implements OnInit {
   }
 
   createOrder(orderDetails: any) {
+    // const data = this.paymentService.getOrder();
+    // data(orderDetails).then((res: any) => {
+    //   console.log('res', res);
+    // });
     return this.https.post(
       environment.cloudFunctions.createOrder,
       orderDetails

@@ -21,10 +21,12 @@ export const environment = {
     },
   },
   cloudFunctions : {
-    createOrder: 'http://localhost:5001/beemadukaan/us-central1/createOrder',
-    capturePayment: 'http://localhost:5001/beemadukaan/us-central1/capturePayments',
+    createOrder: 'https://us-central1-beemadukaan.cloudfunctions.net/createOrder',
+    capturePayment: 'https://us-central1-beemadukaan.cloudfunctions.net/capturePayments',
+    // createOrder: 'http://localhost:5001/beemadukaan/us-central1/createOrder',
+    // capturePayment: 'http://localhost:5001/beemadukaan/us-central1/capturePayments',
   },
-  RAZORPAY_KEY_ID: 'rzp_test_UHcxu4dBF7Du1Z',
+  RAZORPAY_KEY_ID: 'rzp_live_ojGuKvMDp0167v',
   production: false,
 };
 

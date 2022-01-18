@@ -37,28 +37,15 @@
             <form [formGroup]="renewalForm" (ngSubmit)="getPolicyData()">
               <fieldset>
                 <div class="form-group">
-                  <label>Enter your Customer ID *</label>
+                  <label>Enter your Customer ID </label>
                   <span class="icon flaticon-user-2"></span>
-                  <input
-                    type="text"
-                    name="username"
-                    value=""
-                    formControlName="premiumNo"
-                    placeholder="Premium Number"
-                    required
-                  />
+                  <input type="text" name="username" value="" formControlName="premiumNo" placeholder="Premium Number" required/>
                 </div>
+                <h5 style="text-align: center;">Or</h5>
                 <div class="form-group">
-                  <label>Enter your Policy Number *</label>
+                  <label>Enter your Policy Number </label>
                   <span class="icon flaticon-edit"></span>
-                  <input
-                    type="text"
-                    name="Policy"
-                    value=""
-                    formControlName="registrationNo"
-                    placeholder="Registration Number"
-                    required
-                  />
+                  <input type="text" name="Policy" value="" formControlName="registrationNo" placeholder="Registration Number" required/>
                 </div>
               </fieldset>
               <button type="submit" class="btn-style-one text-white">Check Detail</button>

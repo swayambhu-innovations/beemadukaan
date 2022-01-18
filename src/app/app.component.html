@@ -59,7 +59,7 @@
     </div>
   </div>
 </div>
-<div id="overlay" *ngIf="dataProvider.pageSetting.blur">
+<div id="overlay" *ngIf="dataProvider.pageSetting.blur" [ngStyle]="{'height':innerHeight}">
   <mat-progress-spinner color="primary" mode="indeterminate"  [diameter]="60"></mat-progress-spinner>
 </div>
 <div id="paymentComplete" *ngIf="dataProvider.showPaymentComplete">
