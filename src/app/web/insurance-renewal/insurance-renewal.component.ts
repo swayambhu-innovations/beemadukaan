@@ -40,7 +40,7 @@ export class InsuranceRenewalComponent implements OnInit {
         .then((data: any) => {
           data.forEach((element: any) => {
             if (
-              element.data().policyNumber == this.renewalForm.value.premiumNo && element.data().paid === false
+              element.data().policyNumber == this.renewalForm.value.premiumNo
             ) {
               console.log('data', element.data());
               this.policyData = element.data();
@@ -70,7 +70,7 @@ export class InsuranceRenewalComponent implements OnInit {
           data.forEach((element: any) => {
             if (
               element.data().registrationNo ==
-              this.renewalForm.value.registrationNo && element.data().paid === false
+              this.renewalForm.value.registrationNo
             ) {
               console.log('data', element.data());
               this.policyData = element.data();

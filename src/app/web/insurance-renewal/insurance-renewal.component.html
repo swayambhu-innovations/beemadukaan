@@ -78,7 +78,7 @@
                 <strong>Policy File : </strong>
                 <a [href]="policyData?.policyURl" download><button type="button" class="btn btn-info">Download</button></a>
               </div>
-              <button class='btn btn-info' (click)="renewPolicy($event)" *ngIf="allowRenewal(policyData?.lastMonth,policyData?.expiryDate) && policyData?.paid">Renew</button>
+              <button class='btn btn-info' (click)="renewPolicy($event)" *ngIf="allowRenewal(policyData?.lastMonth,policyData?.expiryDate) && !(policyData?.paid)">Renew</button>
             </div>
           </div>
           <div class="row" *ngIf="showData && !(policyData)">
