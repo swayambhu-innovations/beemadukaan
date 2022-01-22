@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthencationService {
-  private loggedIn:boolean = false;
+  public loggedIn:boolean = false;
   userDoc:DocumentReference | undefined;
   checkerUserDoc:DocumentReference | undefined;
   private userServerSubscription:Subscription | undefined = undefined;

@@ -191,6 +191,7 @@
       loop: true,
       margin: 0,
       nav: true,
+      autoplay: 4000,
       autoHeight: true,
       smartSpeed: 500,
       //   autoplay: 6000,

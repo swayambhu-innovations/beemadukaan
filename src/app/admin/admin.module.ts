@@ -14,6 +14,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { AdminComponent } from './admin.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PoliciesComponent } from './policies/policies.component';
+import { AdminAuthGuard } from '../guards/admin-auth.guard';
 
 @NgModule({
   declarations: [
@@ -34,13 +35,13 @@ import { PoliciesComponent } from './policies/policies.component';
     ReactiveFormsModule,
     MatProgressSpinnerModule,
     RouterModule.forChild([
-      { path: 'admin/dashboard', component : DashboardComponent},
-      { path: 'admin/customer-requests', component : CustomerRequestsComponent},
-      { path: 'admin/users', component : UsersListComponent},
-      { path: 'admin/payment-details', component : PaymentDetailsComponent},
-      { path: 'admin/upload-data', component : UploadDataComponent},
-      { path: 'admin/downloads', component : DownloadsComponent},
-      { path: 'admin/policies', component : PoliciesComponent},
+      { path: 'admin/dashboard', component : DashboardComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/customer-requests', component : CustomerRequestsComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/users', component : UsersListComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/payment-details', component : PaymentDetailsComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/upload-data', component : UploadDataComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/downloads', component : DownloadsComponent,canActivate:[AdminAuthGuard]},
+      { path: 'admin/policies', component : PoliciesComponent,canActivate:[AdminAuthGuard]},
     ])
   ]
 })
