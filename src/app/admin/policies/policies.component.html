@@ -9,7 +9,7 @@
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Upload Data</h1>
             </div>
-            <div class="d-flex flex-wrap flex-md-nowrap ">
+            <div class="d-flex flex-wrap flex-md-nowrap policyFlex">
                 <div class="card" style="width: 18rem;" *ngFor="let item of policyDataList">
                     <div class="card-body">
                         <h5 class="card-title">{{item.name}}</h5>
@@ -17,6 +17,9 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{item.policyNumber}}</h6>
                         <span [class]="item.paid ? 'badge badge-success' : 'badge badge-danger'">
                             {{item.paid ? 'Paid' : 'Unpaid'}}
+                        </span>
+                        <span [class]="item.policyURl=='' ? 'badge badge-danger' : 'badge badge-success'">
+                            {{item.policyURl=='' ? 'No Policy File' : 'Policy File Exists'}}
                         </span>
                         <br>
                         <div class="btn-group" role="group" aria-label="Basic example">

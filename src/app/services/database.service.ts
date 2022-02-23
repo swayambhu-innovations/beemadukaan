@@ -59,7 +59,9 @@ export class DatabaseService {
   }
   async addChainedPolicyData(data:PolicyData[]){
     return await data.forEach(async (item)=>{
-      return await setDoc(doc(this.fs,'policy/'+item.policyNumber),item)
+      return await addDoc(collection(this.fs,'policy'),item).then((document:any)=>{
+        return setDoc(doc(this.fs,'policy/'+document.id),{id:document.id},{merge:true})
+      })
     })
   }
   getPolicyData(id:string){

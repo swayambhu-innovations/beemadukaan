@@ -27,15 +27,10 @@ export class UploadDataComponent implements OnInit {
     'Email',
     'Mobile Number',
     'Registration No.',
-    'IDV Value',
     'Policy Number',
-    'Business Type',
-    'Policy Effective Date',
-    'OD Premium',
-    'TP Premium',
-    'Net Premium in Portal',
-    'Service Tax/GST in Portal',
-    'Total Premium in Portal',
+    'Start Date (MM/DD/YYYY)',
+    'Premium To Paid',
+    'Total Premium'
   ];
   incorrectFields: any = [];
   filteredData: PolicyData[] = [];
@@ -90,6 +85,7 @@ export class UploadDataComponent implements OnInit {
   }
   uploadData() {
     this.datalist.forEach((element: any) => {
+      const startDate = new Date(element['Start Date (MM/DD/YYYY)'])
       let expiryDate = new Date(this.uploadDataForm.value.startDate).setDate(
         new Date(this.uploadDataForm.value.startDate).getDate() + 365
       );
@@ -102,8 +98,8 @@ export class UploadDataComponent implements OnInit {
         mobileNumber: element['Mobile Number'],
         registrationNo: element['Registration No.'],
         policyNumber: element['Policy Number'],
-        startDate: element['Expiry Date'],
-        toBePaidPremium: element['Premiuim To Paid'],
+        startDate: element['Start Date (MM/DD/YYYY)'],
+        toBePaidPremium: element['Premium To Paid'],
         lastMonth: lastMonth,
         expiryDate: expiryDate,
         totalPremium: element['Total Premium'],
@@ -146,6 +142,7 @@ export class UploadDataComponent implements OnInit {
       // this.datalist = XLSX.utils.sheet_to_json(worksheet, { raw: true });
       if (this.datalist.length > 0) {
         this.headerList = Object.keys(this.datalist[0]);
+        console.log(this.headerList);
       } else {
         alert('No data found in file');
       }

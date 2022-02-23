@@ -1,9 +1,63 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if
-          request.time < timestamp.date(2022, 1, 25);
+    // match /{document=**} {
+    //   allow read, write: if
+    //       request.time < timestamp.date(2022, 1, 25);
+    // }
+    match /contactRequests {
+    	allow create;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /contactRequests/{contacts}{
+    	allow create;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /downloads {
+    	allow read;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /downloads/{downloads} {
+    	allow read;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /downloads {
+    	allow create;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /policy {
+    	allow read;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /policy/{policy} {
+    	allow read;
+      allow read, write: if isSignedIn() && isAdmin();
+    }
+    match /posts/{post}/comments {
+    	allow read;
+      allow create: if isSignedIn();
+    }
+    match /posts/{post}/comments/{comment} {
+    	allow read;
+      allow create, update: if isSignedIn();
+    }
+    match /users/{user}{
+    	allow read, create, update: if isUser(user);
+    }
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    function isAdmin(){
+    	return getUserData().access.access == 'Admin'
+    }
+
+    // Does the logged-in user match the requested userId?
+    function isUser(userId) {
+      return request.auth.uid == userId;
+    }
+    // Fetch a user from Firestore
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data
     }
   }
 }

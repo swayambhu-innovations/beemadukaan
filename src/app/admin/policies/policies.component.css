@@ -96,3 +96,11 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+.policyFlex{
+    display:flex !important;
+    /* justify-content:space-evenly !important; */
+    flex-wrap: wrap !important;
+}
+.policyFlex > div{
+    margin: 20px;
+}
