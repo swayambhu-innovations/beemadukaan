@@ -33,6 +33,7 @@ import {AngularFireStorageModule, BUCKET } from '@angular/fire/compat/storage';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
 import { connectFunctionsEmulator } from 'firebase/functions';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 export function playerFactory() {
   return player;
@@ -72,7 +73,8 @@ export function playerFactory() {
     MatInputModule,
     MatIconModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ScullyLibModule
   ],
   providers: [
     DynamicScriptLoaderService,
